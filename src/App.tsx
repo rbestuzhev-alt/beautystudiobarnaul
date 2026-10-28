@@ -173,21 +173,14 @@ export default function App() {
                 БЦ O2, 2 этаж
               </p>
             </div>
-            <div className="contact-block">
-              <p className="contact-item-label">Время работы</p>
-              <p className="contact-item-value">
-                Пн — Сб: 10:00 — 21:00<br />
-                Вс: 11:00 — 19:00
-              </p>
-            </div>
-          </div>
 
-          <div className="contacts-actions">
-            <p className="contact-item-label">Связаться</p>
-            <a href="tel:+73832000000" className="btn-pill-light">+7 (383) 200-00-00</a>
-            <div className="socials-row">
-              <a href="#" className="btn-pill-outline">Telegram</a>
-              <a href="#" className="btn-pill-outline">VK</a>
+            <div className="contacts-actions">
+              <p className="contact-item-label">Связаться</p>
+              <a href="tel:+73832000000" className="btn-pill-light">+7 (383) 200-00-00</a>
+              <div className="socials-row">
+                <a href="#" className="btn-pill-outline">Telegram</a>
+                <a href="#" className="btn-pill-outline">VK</a>
+              </div>
             </div>
           </div>
         </div>

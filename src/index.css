@@ -982,3 +982,13 @@ body {
 .footer-legal + .footer-legal {
   margin-top: 4px;
 }
+
+/* ============================================
+   HOVER: ПОЛНАЯ ЗАЛИВКА КОНТУРНЫХ ПИЛЮЛЬ
+   ============================================ */
+
+.btn-pill-outline:hover {
+  background-color: var(--accent-birch);
+  border-color: var(--accent-birch);
+  color: var(--text);
+}
