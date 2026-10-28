@@ -1130,3 +1130,14 @@ body {
     padding: 80px 60px;
   }
 }
+
+/* ============================================
+   БУРГЕР: ТРИ ОДИНАКОВЫЕ ПОЛОСКИ
+   ============================================ */
+
+.header .burger span {
+  width: 24px;
+  height: 2px;
+  border-radius: 0;
+  background-color: var(--text);
+}
