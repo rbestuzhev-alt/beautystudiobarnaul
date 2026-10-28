@@ -107,7 +107,9 @@ export default function App() {
           className="close-btn"
           onClick={() => setMenuOpen(false)}
           aria-label="Закрыть меню"
-        ></button>
+        >
+          &times;
+        </button>
 
         {/* Навигация */}
         <a href="#about" onClick={() => setMenuOpen(false)}>О студии</a>
