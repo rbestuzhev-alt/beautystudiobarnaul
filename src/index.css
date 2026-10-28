@@ -1441,3 +1441,17 @@ body {
   opacity: 1;
   transform: rotate(90deg);
 }
+
+/* ============================================
+   КОМПЕНСАЦИЯ ФИКСИРОВАННОГО ХЕДЕРА ПРИ ЯКОРНОМ СКРОЛЛЕ
+   ============================================ */
+
+.contacts-section {
+  scroll-margin-top: 120px;
+}
+
+@media (max-width: 1199px) {
+  .contacts-section {
+    scroll-margin-top: 100px;
+  }
+}
