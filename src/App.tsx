@@ -23,17 +23,25 @@ export default function App() {
     return () => observer.disconnect();
   }, []);
 
-  // Блокировка скролла при открытом меню + компенсация скроллбара
+  // Блокировка скролла с компенсацией скроллбара
+  // При закрытии снимаем лок после завершения fade-out меню (400 мс),
+  // чтобы скроллбар не возвращался поверх исчезающего меню
   useEffect(() => {
+    let unlockTimer: ReturnType<typeof setTimeout>;
+
     if (menuOpen) {
       const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
       document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
       document.body.classList.add('scroll-lock');
     } else {
-      document.body.classList.remove('scroll-lock');
-      document.documentElement.style.setProperty('--scrollbar-width', '0px');
+      unlockTimer = setTimeout(() => {
+        document.body.classList.remove('scroll-lock');
+        document.documentElement.style.setProperty('--scrollbar-width', '0px');
+      }, 400);
     }
+
     return () => {
+      clearTimeout(unlockTimer);
       document.body.classList.remove('scroll-lock');
       document.documentElement.style.setProperty('--scrollbar-width', '0px');
     };
