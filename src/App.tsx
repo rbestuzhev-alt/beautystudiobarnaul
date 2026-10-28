@@ -6,7 +6,7 @@ export default function App() {
   const [privacyOpen, setPrivacyOpen] = useState(false);
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
 
-  // Умный прелоадер: минимум 3 секунды показа, но если загрузка затянулась — показываем сайт сразу
+  // Умный прелоадер: минимум 4 секунды показа, но если загрузка затянулась — показываем сайт сразу
   useEffect(() => {
     let timer;
     let isLoaded = false;
@@ -21,7 +21,7 @@ export default function App() {
     timer = setTimeout(() => {
       timerFired = true;
       tryHide();
-    }, 3000);
+    }, 4000);
 
     const onLoad = () => {
       isLoaded = true;
