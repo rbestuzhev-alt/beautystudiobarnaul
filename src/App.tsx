@@ -23,14 +23,20 @@ export default function App() {
     return () => observer.disconnect();
   }, []);
 
-  // Блокировка скролла при открытом меню
+  // Блокировка скролла при открытом меню + компенсация скроллбара
   useEffect(() => {
     if (menuOpen) {
-      document.body.style.overflow = 'hidden';
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+      document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
+      document.body.classList.add('scroll-lock');
     } else {
-      document.body.style.overflow = '';
+      document.body.classList.remove('scroll-lock');
+      document.documentElement.style.setProperty('--scrollbar-width', '0px');
     }
-    return () => { document.body.style.overflow = ''; };
+    return () => {
+      document.body.classList.remove('scroll-lock');
+      document.documentElement.style.setProperty('--scrollbar-width', '0px');
+    };
   }, [menuOpen]);
 
   return (
