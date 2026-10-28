@@ -1143,6 +1143,33 @@ body {
 }
 
 /* ============================================
+   АНТИ-ПОДЁРГИВАНИЕ: СТАБИЛЬНЫЙ ГУТТЕР + ТОНКИЙ СКРОЛЛБАР
+   ============================================ */
+
+html,
+body {
+  scrollbar-gutter: stable;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-birch);
+  border-radius: 4px;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-birch) var(--bg);
+}
+
+/* ============================================
    КОМПЕНСАЦИЯ СКРОЛЛБАРА ПРИ ОТКРЫТОМ МЕНЮ
    ============================================ */
 

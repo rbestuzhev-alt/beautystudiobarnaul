@@ -23,28 +23,15 @@ export default function App() {
     return () => observer.disconnect();
   }, []);
 
-  // Блокировка скролла с компенсацией скроллбара
-  // При закрытии снимаем лок после завершения fade-out меню (400 мс),
-  // чтобы скроллбар не возвращался поверх исчезающего меню
+  // Блокировка скролла при открытом меню.
+  // Компенсация подёргивания решена через scrollbar-gutter: stable в CSS
   useEffect(() => {
-    let unlockTimer: ReturnType<typeof setTimeout>;
-
     if (menuOpen) {
-      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-      document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
-      document.body.classList.add('scroll-lock');
+      document.body.style.overflow = 'hidden';
     } else {
-      unlockTimer = setTimeout(() => {
-        document.body.classList.remove('scroll-lock');
-        document.documentElement.style.setProperty('--scrollbar-width', '0px');
-      }, 400);
+      document.body.style.overflow = '';
     }
-
-    return () => {
-      clearTimeout(unlockTimer);
-      document.body.classList.remove('scroll-lock');
-      document.documentElement.style.setProperty('--scrollbar-width', '0px');
-    };
+    return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
 
   return (
