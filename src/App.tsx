@@ -6,19 +6,38 @@ export default function App() {
   const [privacyOpen, setPrivacyOpen] = useState(false);
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
 
+  // Умный прелоадер: минимум 3 секунды показа, но если загрузка затянулась — показываем сайт сразу
   useEffect(() => {
-    const handleLoad = () => {
-      setTimeout(() => {
+    let timer;
+    let isLoaded = false;
+    let timerFired = false;
+
+    const tryHide = () => {
+      if (isLoaded && timerFired) {
         setIsLoading(false);
-      }, 2000);
+      }
+    };
+
+    timer = setTimeout(() => {
+      timerFired = true;
+      tryHide();
+    }, 3000);
+
+    const onLoad = () => {
+      isLoaded = true;
+      tryHide();
     };
 
     if (document.readyState === 'complete') {
-      handleLoad();
+      isLoaded = true;
     } else {
-      window.addEventListener('load', handleLoad);
-      return () => window.removeEventListener('load', handleLoad);
+      window.addEventListener('load', onLoad);
     }
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('load', onLoad);
+    };
   }, []);
 
   const scrollToAddress = (e: React.MouseEvent<HTMLAnchorElement>) => {
