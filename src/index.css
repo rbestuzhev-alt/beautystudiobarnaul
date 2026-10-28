@@ -1226,7 +1226,8 @@ body {
 
 .privacy-link:hover {
   opacity: 1;
-  color: var(--accent-birch);
+  color: var(--text);
+  text-decoration-color: var(--accent-birch);
 }
 
 .privacy-modal {
