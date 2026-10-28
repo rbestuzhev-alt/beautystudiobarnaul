@@ -74,8 +74,7 @@ export default function App() {
 
         {/* Навигация */}
         <a href="#about" onClick={() => setMenuOpen(false)}>О студии</a>
-        <a href="#services" onClick={() => setMenuOpen(false)}>Услуги</a>
-        <a href="#masters" onClick={() => setMenuOpen(false)}>Мастера</a>
+        <a href="#gallery" onClick={() => setMenuOpen(false)}>Галерея</a>
         <a href="#contacts" onClick={() => setMenuOpen(false)}>Контакты</a>
       </nav>
 
@@ -138,84 +137,19 @@ export default function App() {
       </section>
 
       {/* ============================================
-          СЕКЦИЯ УСЛУГИ — Светлый фон
+          СЕКЦИЯ ГАЛЕРЕЯ — Светлый фон
           ============================================ */}
-      <section id="services" className="services-section">
+      <section id="gallery" className="services-section">
         <div className="reveal">
-          <p className="services-label">Услуги</p>
-          <h2 className="services-title">Что мы делаем</h2>
-        </div>
-
-        <div className="services-list reveal">
-          <div className="service-item">
-            <span className="service-name">Стрижка</span>
-            <span className="service-price">от 2 500 ₽</span>
-          </div>
-          <div className="service-item">
-            <span className="service-name">Окрашивание</span>
-            <span className="service-price">от 5 000 ₽</span>
-          </div>
-          <div className="service-item">
-            <span className="service-name">Укладка</span>
-            <span className="service-price">от 2 000 ₽</span>
-          </div>
-          <div className="service-item">
-            <span className="service-name">Уход за волосами</span>
-            <span className="service-price">от 3 000 ₽</span>
-          </div>
-          <div className="service-item">
-            <span className="service-name">Маникюр</span>
-            <span className="service-price">от 2 000 ₽</span>
-          </div>
-          <div className="service-item">
-            <span className="service-name">Педикюр</span>
-            <span className="service-price">от 3 000 ₽</span>
-          </div>
-          <div className="service-item">
-            <span className="service-name">Брови и ресницы</span>
-            <span className="service-price">от 1 500 ₽</span>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================
-          СЕКЦИЯ МАСТЕРА — Светлый фон
-          ============================================ */}
-      <section id="masters" className="masters-section">
-        <div className="reveal">
-          <p className="masters-label">Мастера</p>
-          <h2 className="masters-title">Наша команда</h2>
+          <p className="services-label">Атмосфера</p>
+          <h2 className="services-title">Эстетика пространства и результаты работ</h2>
         </div>
 
         <div className="masters-grid reveal">
-          <div className="master-card">
-            <div className="master-photo photo-placeholder">[ФОТО мастера]</div>
-            <div>
-              <p className="master-name">Анна Светлова</p>
-              <p className="master-role">Стилист-колорист</p>
-            </div>
-          </div>
-          <div className="master-card">
-            <div className="master-photo photo-placeholder">[ФОТО мастера]</div>
-            <div>
-              <p className="master-name">Мария Козлова</p>
-              <p className="master-role">Nail-мастер</p>
-            </div>
-          </div>
-          <div className="master-card">
-            <div className="master-photo photo-placeholder">[ФОТО мастера]</div>
-            <div>
-              <p className="master-name">Елена Романова</p>
-              <p className="master-role">Бровист</p>
-            </div>
-          </div>
-          <div className="master-card">
-            <div className="master-photo photo-placeholder">[ФОТО мастера]</div>
-            <div>
-              <p className="master-name">Дарья Никитина</p>
-              <p className="master-role">Стилист</p>
-            </div>
-          </div>
+          <div className="master-photo photo-placeholder">[ФОТО]</div>
+          <div className="master-photo photo-placeholder">[ФОТО]</div>
+          <div className="master-photo photo-placeholder">[ФОТО]</div>
+          <div className="master-photo photo-placeholder">[ФОТО]</div>
         </div>
       </section>
 
@@ -252,7 +186,7 @@ export default function App() {
           <div>
             <p className="contact-item-label">Соцсети</p>
             <p className="contact-item-value">
-              <a href="#">Instagram</a><br />
+              <a href="#">VK</a><br />
               <a href="#">Telegram</a>
             </p>
           </div>
