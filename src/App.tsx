@@ -196,8 +196,13 @@ export default function App() {
       {/* ============================================
           ФУТЕР
           ============================================ */}
-      <footer className="footer">
-        <p className="footer-text">© 2026 БЬЮТИ-СТУДИЯ. БАРНАУЛ</p>
+      <footer className="footer-light">
+        <div className="footer-logo-wrap">
+          <span className="footer-logo">ЛВ</span>
+          <span className="footer-logo-sub">Бьюти-студия</span>
+        </div>
+        <p className="footer-legal">© 2026 ЛВ Бьюти-студия. Барнаул</p>
+        <p className="footer-legal">Все права защищены</p>
       </footer>
     </>
   );
