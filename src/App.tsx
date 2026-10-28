@@ -2,8 +2,24 @@ import { useState, useEffect, useRef } from 'react';
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [privacyOpen, setPrivacyOpen] = useState(false);
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
+
+  useEffect(() => {
+    const handleLoad = () => {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
+    };
+
+    if (document.readyState === 'complete') {
+      handleLoad();
+    } else {
+      window.addEventListener('load', handleLoad);
+      return () => window.removeEventListener('load', handleLoad);
+    }
+  }, []);
 
   const scrollToAddress = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -65,6 +81,15 @@ export default function App() {
 
   return (
     <>
+      {/* ПРЕЛОАДЕР */}
+      {isLoading && (
+        <div className="preloader">
+          <div className="preloader-content">
+            <h1 className="preloader-title">#ЗДЕСЬ ТВОРЯТ<br />КРАСОТУ</h1>
+          </div>
+        </div>
+      )}
+
       {/* ============================================
           ХЕДЕР — Fixed, blur, минимализм
           ============================================ */}
