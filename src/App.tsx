@@ -85,9 +85,6 @@ export default function App() {
         {/* Градиент поверх фона */}
         <div className="hero-overlay"></div>
 
-        {/* Бейдж скидки — правый верхний угол */}
-        <div className="discount-badge">−20%</div>
-
         {/* Центральный контент */}
         <div className="hero-content">
           <p className="hero-location">БЦ O2 • БАРНАУЛ</p>
