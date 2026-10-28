@@ -150,11 +150,9 @@ export default function App() {
         <div className="hero-overlay"></div>
 
         {/* Центральный контент */}
-        <div className="hero-content">
-          <p className="hero-location">БЦ O2 • БАРНАУЛ</p>
-          <h1 className="hero-title">#ЗДЕСЬ ТВОРЯТ<br />КРАСОТУ</h1>
-        </div>
-
+<div className="hero-content">
+  <p className="hero-location">БЦ O2 • БАРНАУЛ</p>
+</div>
         {/* Скролл-индикатор — стрелка вниз */}
         <div className="scroll-indicator">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
