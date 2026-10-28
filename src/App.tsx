@@ -164,33 +164,31 @@ export default function App() {
           <h2 className="contacts-title">Как нас найти</h2>
         </div>
 
-        <div className="contacts-grid reveal">
-          <div>
-            <p className="contact-item-label">Адрес</p>
-            <p className="contact-item-value">
-              г. Барнаул, ул. Партизанская<br />
-              БЦ O2, 2 этаж
-            </p>
+        <div className="contacts-layout reveal">
+          <div className="contacts-info">
+            <div className="contact-block">
+              <p className="contact-item-label">Адрес</p>
+              <p className="contact-item-value">
+                г. Барнаул, ул. Партизанская<br />
+                БЦ O2, 2 этаж
+              </p>
+            </div>
+            <div className="contact-block">
+              <p className="contact-item-label">Время работы</p>
+              <p className="contact-item-value">
+                Пн — Сб: 10:00 — 21:00<br />
+                Вс: 11:00 — 19:00
+              </p>
+            </div>
           </div>
-          <div>
-            <p className="contact-item-label">Телефон</p>
-            <p className="contact-item-value">
-              <a href="tel:+73832000000">+7 (383) 200-00-00</a>
-            </p>
-          </div>
-          <div>
-            <p className="contact-item-label">Время работы</p>
-            <p className="contact-item-value">
-              Пн — Сб: 10:00 — 21:00<br />
-              Вс: 11:00 — 19:00
-            </p>
-          </div>
-          <div>
-            <p className="contact-item-label">Соцсети</p>
-            <p className="contact-item-value">
-              <a href="#">VK</a><br />
-              <a href="#">Telegram</a>
-            </p>
+
+          <div className="contacts-actions">
+            <p className="contact-item-label">Связаться</p>
+            <a href="tel:+73832000000" className="btn-pill-light">+7 (383) 200-00-00</a>
+            <div className="socials-row">
+              <a href="#" className="btn-pill-outline">Telegram</a>
+              <a href="#" className="btn-pill-outline">VK</a>
+            </div>
           </div>
         </div>
       </section>

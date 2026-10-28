@@ -836,3 +836,93 @@ body {
     padding: 14px 32px;
   }
 }
+
+/* ============================================
+   КОНТАКТЫ: ПРЕМИАЛЬНАЯ КОМПОЗИЦИЯ + ПИЛЮЛИ
+   ============================================ */
+
+.contacts-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 64px;
+  max-width: 1400px;
+}
+
+@media (min-width: 1200px) {
+  .contacts-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 120px;
+  }
+}
+
+.contacts-info {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.contacts-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.socials-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.btn-pill-light {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text);
+  background-color: var(--bg);
+  border: none;
+  border-radius: 999px;
+  padding: 16px 32px;
+  cursor: pointer;
+  transition: background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.btn-pill-light:hover {
+  background-color: var(--accent-birch);
+  color: var(--text);
+}
+
+@media (min-width: 768px) {
+  .btn-pill-light {
+    display: inline-block;
+    width: auto;
+  }
+}
+
+.btn-pill-outline {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(250, 250, 248, 0.8);
+  background: transparent;
+  border: 1px solid rgba(250, 250, 248, 0.3);
+  border-radius: 999px;
+  padding: 13px 31px;
+  cursor: pointer;
+  transition: border-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.btn-pill-outline:hover {
+  border-color: var(--accent-birch);
+  color: var(--accent-birch);
+}
