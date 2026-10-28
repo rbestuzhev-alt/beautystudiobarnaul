@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [privacyOpen, setPrivacyOpen] = useState(false);
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
 
   // Анимация при скролле — Intersection Observer
@@ -33,6 +34,25 @@ export default function App() {
     }
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
+
+  // Блокировка скролла при открытой политике
+  useEffect(() => {
+    if (privacyOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [privacyOpen]);
+
+  // Закрытие по Escape
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setPrivacyOpen(false);
+    };
+    window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, []);
 
   return (
     <>
@@ -198,8 +218,31 @@ export default function App() {
           <span className="footer-logo-sub">Бьюти-студия</span>
         </div>
         <p className="footer-legal">© 2026 ЛВ Бьюти-студия. Барнаул</p>
+        <p className="footer-legal privacy-trigger">
+          Нажимая кнопку записи, вы соглашаетесь с{' '}
+          <button className="privacy-link" onClick={() => setPrivacyOpen(true)}>
+            политикой конфиденциальности
+          </button>
+        </p>
         <p className="footer-legal">Все права защищены</p>
       </footer>
+
+      {/* МОДАЛЬНОЕ ОКНО ПОЛИТИКИ КОНФИДЕНЦИАЛЬНОСТИ */}
+      {privacyOpen && (
+        <div className="privacy-modal" onClick={() => setPrivacyOpen(false)}>
+          <div className="privacy-modal__content" onClick={(e) => e.stopPropagation()}>
+            <button className="privacy-modal__close" onClick={() => setPrivacyOpen(false)}>&times;</button>
+            <h2 className="privacy-modal__title"><em>политика</em> конфиденциальности</h2>
+            <div className="privacy-modal__text">
+              <p className="privacy-item"><strong>01 — Сбор данных.</strong> Мы собираем только ваше имя и номер телефона, необходимые для записи на услуги студии.</p>
+              <p className="privacy-item"><strong>02 — Цель обработки.</strong> Данные используются исключительно для подтверждения визита, создания карточки клиента и напоминаний о записи.</p>
+              <p className="privacy-item"><strong>03 — Интеграция с Dikidi.</strong> Для автоматизации процесса онлайн-записи мы используем защищенный сервис Dikidi. Ваши данные передаются в этот сервис только в минимально необходимом объеме и защищены его политиками безопасности.</p>
+              <p className="privacy-item"><strong>04 — Защита информации.</strong> Мы не передаем ваши персональные данные третьим лицам, не связанным с непосредственным оказанием услуг нашей студии.</p>
+              <p className="privacy-item"><strong>05 — Ваши права.</strong> Вы можете в любой момент отозвать согласие на обработку персональных данных, обратившись к администратору студии или через мессенджеры, указанные на сайте.</p>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
