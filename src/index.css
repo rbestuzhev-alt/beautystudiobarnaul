@@ -1353,7 +1353,6 @@ body {
 .btn-phone:hover {
   background-color: var(--accent-birch);
   color: var(--text);
-  transform: translateY(-2px);
 }
 
 @media (min-width: 1200px) {
