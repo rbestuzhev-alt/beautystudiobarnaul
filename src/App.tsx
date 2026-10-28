@@ -137,19 +137,23 @@ export default function App() {
       </section>
 
       {/* ============================================
-          СЕКЦИЯ ГАЛЕРЕЯ — Светлый фон
+          СЕКЦИЯ ГАЛЕРЕЯ — Masonry с разноразмерными фото
           ============================================ */}
       <section id="gallery" className="services-section">
         <div className="reveal">
           <p className="services-label">Атмосфера</p>
-          <h2 className="services-title">Эстетика пространства и результаты работ</h2>
+          <h2 className="services-title">Эстетика пространства<br />и результаты работ</h2>
         </div>
 
-        <div className="masters-grid reveal">
-          <div className="master-photo photo-placeholder">[ФОТО]</div>
-          <div className="master-photo photo-placeholder">[ФОТО]</div>
-          <div className="master-photo photo-placeholder">[ФОТО]</div>
-          <div className="master-photo photo-placeholder">[ФОТО]</div>
+        <div className="gallery-masonry reveal">
+          <div className="gallery-item gallery-item-tall photo-placeholder">[ФОТО мастера за работой]</div>
+          <div className="gallery-item gallery-item-square photo-placeholder">[ФОТО интерьера]</div>
+          <div className="gallery-item gallery-item-wide photo-placeholder">[ФОТО маникюра]</div>
+          <div className="gallery-item gallery-item-square photo-placeholder">[ФОТО деталей]</div>
+          <div className="gallery-item gallery-item-tall photo-placeholder">[ФОТО укладки]</div>
+          <div className="gallery-item gallery-item-wide photo-placeholder">[ФОТО ресепшн]</div>
+          <div className="gallery-item gallery-item-square photo-placeholder">[ФОТО бровей]</div>
+          <div className="gallery-item gallery-item-tall photo-placeholder">[ФОТО процесса]</div>
         </div>
       </section>
 
