@@ -1158,10 +1158,12 @@ body {
 .gallery-masonry {
   column-count: 2;
   column-gap: 12px;
+  direction: rtl;
 }
 
 .gallery-item {
   margin-bottom: 12px;
+  direction: ltr;
 }
 
 @media (min-width: 768px) {
