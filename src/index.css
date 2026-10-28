@@ -875,8 +875,8 @@ body {
 }
 
 .btn-pill-light {
-  display: block;
-  width: 100%;
+  display: inline-block;
+  width: auto;
   text-align: center;
   font-family: 'Inter', sans-serif;
   font-size: 11px;
@@ -896,13 +896,6 @@ body {
 .btn-pill-light:hover {
   background-color: var(--accent-birch);
   color: var(--text);
-}
-
-@media (min-width: 768px) {
-  .btn-pill-light {
-    display: inline-block;
-    width: auto;
-  }
 }
 
 .btn-pill-outline {
