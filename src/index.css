@@ -1112,3 +1112,21 @@ body {
     margin-right: 0;
   }
 }
+
+/* ============================================
+   ПОДВАЛ: КОМПАКТНЕЕ ВОЗДУХ
+   ============================================ */
+
+.footer-light {
+  padding: 64px 24px;
+}
+
+.footer-logo-wrap {
+  margin-bottom: 40px;
+}
+
+@media (min-width: 1200px) {
+  .footer-light {
+    padding: 80px 60px;
+  }
+}
