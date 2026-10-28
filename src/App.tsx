@@ -263,7 +263,7 @@ export default function App() {
           ФУТЕР
           ============================================ */}
       <footer className="footer">
-        <p className="footer-text">© 2024 ЛВ БЬЮТИ-СТУДИЯ. БАРНАУЛ</p>
+        <p className="footer-text">© 2024 БЬЮТИ-СТУДИЯ. БАРНАУЛ</p>
       </footer>
     </>
   );
