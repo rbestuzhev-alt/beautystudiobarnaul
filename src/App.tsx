@@ -5,6 +5,15 @@ export default function App() {
   const [privacyOpen, setPrivacyOpen] = useState(false);
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
 
+  const scrollToAddress = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const address = document.querySelector('#contacts-address');
+    if (address) {
+      address.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    setMenuOpen(false);
+  };
+
   // Анимация при скролле — Intersection Observer
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -71,7 +80,7 @@ export default function App() {
         <div className="header-actions">
           <button className="btn-pill">Записаться</button>
 
-          <a href="#contacts" className="btn-phone" aria-label="Позвонить">
+          <a href="#contacts-address" className="btn-phone" aria-label="Позвонить" onClick={scrollToAddress}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
             </svg>
@@ -105,7 +114,7 @@ export default function App() {
         {/* Навигация */}
         <a href="#about" onClick={() => setMenuOpen(false)}>О студии</a>
         <a href="#gallery" onClick={() => setMenuOpen(false)}>Галерея</a>
-        <a href="#contacts" onClick={() => setMenuOpen(false)}>Контакты</a>
+        <a href="#contacts-address" onClick={scrollToAddress}>Контакты</a>
       </nav>
 
       {/* ============================================
@@ -197,7 +206,7 @@ export default function App() {
 
         <div className="contacts-layout reveal">
           <div className="contacts-info">
-            <div className="contact-block">
+            <div id="contacts-address" className="contact-block">
               <p className="contact-item-label">Адрес</p>
               <p className="contact-item-value">
                 г. Барнаул, ул. Партизанская<br />
