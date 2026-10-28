@@ -1150,3 +1150,38 @@ html,
 body {
   scrollbar-gutter: stable;
 }
+
+/* ============================================
+   ГАЛЕРЕЯ: БОЛЬШЕ ФОТО, МЕЛЬЧЕ РАЗМЕР
+   ============================================ */
+
+.gallery-masonry {
+  column-count: 2;
+  column-gap: 12px;
+}
+
+.gallery-item {
+  margin-bottom: 12px;
+}
+
+@media (min-width: 768px) {
+  .gallery-masonry {
+    column-count: 3;
+    column-gap: 16px;
+  }
+
+  .gallery-item {
+    margin-bottom: 16px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .gallery-masonry {
+    column-count: 4;
+    column-gap: 20px;
+  }
+
+  .gallery-item {
+    margin-bottom: 20px;
+  }
+}

@@ -141,14 +141,20 @@ export default function App() {
         </div>
 
         <div className="gallery-masonry reveal">
-          <div className="gallery-item gallery-item-tall photo-placeholder">[ФОТО мастера за работой]</div>
-          <div className="gallery-item gallery-item-square photo-placeholder">[ФОТО интерьера]</div>
-          <div className="gallery-item gallery-item-wide photo-placeholder">[ФОТО маникюра]</div>
-          <div className="gallery-item gallery-item-square photo-placeholder">[ФОТО деталей]</div>
-          <div className="gallery-item gallery-item-tall photo-placeholder">[ФОТО укладки]</div>
-          <div className="gallery-item gallery-item-wide photo-placeholder">[ФОТО ресепшн]</div>
-          <div className="gallery-item gallery-item-square photo-placeholder">[ФОТО бровей]</div>
-          <div className="gallery-item gallery-item-tall photo-placeholder">[ФОТО процесса]</div>
+          <div className="gallery-item gallery-item-tall photo-placeholder">[Руки мастера в работе]</div>
+          <div className="gallery-item gallery-item-square photo-placeholder">[Маникюр крупным планом]</div>
+          <div className="gallery-item gallery-item-wide photo-placeholder">[Интерьер O2]</div>
+          <div className="gallery-item gallery-item-square photo-placeholder">[Кофе-зона]</div>
+          <div className="gallery-item gallery-item-tall photo-placeholder">[Оформление бровей]</div>
+          <div className="gallery-item gallery-item-square photo-placeholder">[Процесс наращивания]</div>
+          <div className="gallery-item gallery-item-wide photo-placeholder">[Ресепшн]</div>
+          <div className="gallery-item gallery-item-tall photo-placeholder">[Детали укладки]</div>
+          <div className="gallery-item gallery-item-square photo-placeholder">[Растения в студии]</div>
+          <div className="gallery-item gallery-item-wide photo-placeholder">[Рабочее место мастера]</div>
+          <div className="gallery-item gallery-item-tall photo-placeholder">[Педикюр результат]</div>
+          <div className="gallery-item gallery-item-square photo-placeholder">[Полка с косметикой]</div>
+          <div className="gallery-item gallery-item-wide photo-placeholder">[Зеркальная зона]</div>
+          <div className="gallery-item gallery-item-tall photo-placeholder">[Портрет клиента]</div>
         </div>
       </section>
 
