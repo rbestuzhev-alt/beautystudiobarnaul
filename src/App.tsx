@@ -140,7 +140,7 @@ export default function App() {
           СЕКЦИЯ ГАЛЕРЕЯ — Masonry с разноразмерными фото
           ============================================ */}
       <section id="gallery" className="services-section">
-        <div className="reveal">
+        <div className="reveal gallery-header">
           <p className="services-label">Атмосфера</p>
           <h2 className="services-title">Эстетика пространства<br />и результаты работ</h2>
         </div>
