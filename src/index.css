@@ -1143,47 +1143,10 @@ body {
 }
 
 /* ============================================
-   АНТИ-ПОДЁРГИВАНИЕ: СТАБИЛЬНЫЙ ГУТТЕР + ТОНКИЙ СКРОЛЛБАР
+   АНТИ-ПОДЁРГИВАНИЕ: СТАБИЛЬНЫЙ ГУТТЕР СКРОЛЛБАРА
    ============================================ */
 
 html,
 body {
   scrollbar-gutter: stable;
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--accent-birch);
-  border-radius: 4px;
-}
-
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--accent-birch) var(--bg);
-}
-
-/* ============================================
-   КОМПЕНСАЦИЯ СКРОЛЛБАРА ПРИ ОТКРЫТОМ МЕНЮ
-   ============================================ */
-
-body.scroll-lock {
-  overflow: hidden;
-  padding-right: var(--scrollbar-width, 0px);
-}
-
-body.scroll-lock .header {
-  padding-right: calc(24px + var(--scrollbar-width, 0px));
-}
-
-@media (min-width: 1200px) {
-  body.scroll-lock .header {
-    padding-right: calc(60px + var(--scrollbar-width, 0px));
-  }
 }
