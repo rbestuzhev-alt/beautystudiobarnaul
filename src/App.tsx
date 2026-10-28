@@ -46,19 +46,20 @@ export default function App() {
           <span className="logo-subtitle hidden xl:block">Бьюти-студия</span>
         </div>
 
-        {/* Кнопка «Записаться» — десктоп */}
-        <button className="btn-header btn-header-desktop">Записаться</button>
+        {/* Кнопка-пилюля + бургер */}
+        <div className="header-actions">
+          <button className="btn-pill">Записаться</button>
 
-        {/* Бургер — мобильная версия */}
-        <button
-          className="burger"
-          onClick={() => setMenuOpen(true)}
-          aria-label="Открыть меню"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+          <button
+            className="burger"
+            onClick={() => setMenuOpen(true)}
+            aria-label="Открыть меню"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </header>
 
       {/* ============================================
