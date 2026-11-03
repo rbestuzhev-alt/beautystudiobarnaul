@@ -1511,3 +1511,17 @@ body {
     visibility: hidden;
   }
 }
+
+/* ============================================
+   ФИРМЕННОЕ ВЫДЕЛЕНИЕ ТЕКСТА
+   ============================================ */
+
+::selection {
+  background-color: var(--accent-birch);
+  color: var(--text);
+}
+
+::-moz-selection {
+  background-color: var(--accent-birch);
+  color: var(--text);
+}
