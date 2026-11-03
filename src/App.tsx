@@ -185,7 +185,7 @@ export default function App() {
   <p className="hero-location fade-in-up">БЦ O2 • БАРНАУЛ</p>
 </div>
         {/* Скролл-индикатор — стрелка вниз */}
-        <div className="scroll-indicator">
+        <div className="scroll-indicator fade-in-up">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path
               d="M10 3L10 17M10 17L4 11M10 17L16 11"
@@ -273,15 +273,15 @@ export default function App() {
         <div className="contacts-layout">
           <div className="contacts-info">
             <div id="contacts-address" className="contact-block fade-in-up">
-              <p className="contact-item-label">Адрес</p>
-              <p className="contact-item-value">
+              <p className="contact-item-label fade-in-up">Адрес</p>
+              <p className="contact-item-value fade-in-up">
                 г. Барнаул, ул. Партизанская<br />
                 БЦ O2, 2 этаж
               </p>
             </div>
 
             <div className="contacts-actions">
-              <p className="contact-item-label">Связаться</p>
+              <p className="contact-item-label fade-in-up">Связаться</p>
               <a href="tel:+73832000000" className="btn-pill-light fade-in-up">+7 (383) 200-00-00</a>
               <div className="socials-row">
                 <a href="#" className="btn-pill-outline fade-in-up">Telegram</a>
