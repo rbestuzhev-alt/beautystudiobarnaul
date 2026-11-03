@@ -282,7 +282,7 @@ export default function App() {
       </section>
 
       {/* ПРОМО-КАРТОЧКА: СКИДКА 20% */}
-      <section className="promo-section">
+      <section className="promo-section fade-in-up">
         <div
           className="promo-card fade-in-up"
           ref={promoCardRef}
