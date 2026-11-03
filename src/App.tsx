@@ -49,28 +49,7 @@ export default function App() {
     setMenuOpen(false);
   };
 
-  // Scroll-triggered анимации появления (Apple-style)
-  // Безопасно удаляется: базовый .reveal всегда видим, анимация только через .is-visible
-  useEffect(() => {
-    const reveals = document.querySelectorAll('.reveal');
-    if (!reveals.length) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
-    );
-
-    reveals.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
 
   // Блокировка скролла при открытом меню.
   // Компенсация подёргивания решена через scrollbar-gutter: stable в CSS
@@ -174,7 +153,7 @@ export default function App() {
 
         {/* Центральный контент */}
 <div className="hero-content">
-  <p className="hero-location reveal">БЦ O2 • БАРНАУЛ</p>
+  <p className="hero-location">БЦ O2 • БАРНАУЛ</p>
 </div>
         {/* Скролл-индикатор — стрелка вниз */}
         <div className="scroll-indicator">
@@ -194,18 +173,18 @@ export default function App() {
           СЕКЦИЯ О СТУДИИ — Тёмный фон, две колонки
           ============================================ */}
       <section id="about" className="about-section">
-        <div className="about-grid reveal">
+        <div className="about-grid">
           {/* Левая колонка — фото */}
           <div className="about-photos">
-            <div className="about-photo photo-placeholder reveal">[ФОТО мастера]</div>
-            <div className="about-photo photo-placeholder reveal">[ФОТО интерьера]</div>
+            <div className="about-photo photo-placeholder">[ФОТО мастера]</div>
+            <div className="about-photo photo-placeholder">[ФОТО интерьера]</div>
           </div>
 
           {/* Правая колонка — текст */}
           <div>
-            <p className="about-label reveal">О студии</p>
-            <h2 className="about-title reveal">Концептуальная<br />бьюти-студия</h2>
-            <p className="about-text reveal">
+            <p className="about-label">О студии</p>
+            <h2 className="about-title">Концептуальная<br />бьюти-студия</h2>
+            <p className="about-text">
               Мы расположены в премиальном бизнес-центре O2 на улице Партизанской.
               Наслаждайтесь кофе из кофемашины De'Longhi, ожидая процедуру у наших мастеров.
               Мы создали атмосферу, в которую хочется возвращаться.
@@ -218,12 +197,12 @@ export default function App() {
           СЕКЦИЯ ГАЛЕРЕЯ — Masonry с разноразмерными фото
           ============================================ */}
       <section id="gallery" className="services-section">
-        <div className="reveal gallery-header">
+        <div className="gallery-header">
           <p className="services-label">Атмосфера</p>
           <h2 className="services-title">Эстетика пространства<br />и результаты работ</h2>
         </div>
 
-        <div className="gallery-masonry reveal">
+        <div className="gallery-masonry">
           <div className="gallery-item gallery-item-tall photo-placeholder">[Руки мастера в работе]</div>
           <div className="gallery-item gallery-item-square photo-placeholder">[Маникюр крупным планом]</div>
           <div className="gallery-item gallery-item-wide photo-placeholder">[Интерьер O2]</div>
@@ -245,14 +224,14 @@ export default function App() {
           СЕКЦИЯ КОНТАКТЫ — Тёмный фон
           ============================================ */}
       <section id="contacts" className="contacts-section">
-        <div className="reveal">
+        <div className="">
           <p className="contacts-label">Контакты</p>
           <h2 className="contacts-title">Как нас найти</h2>
         </div>
 
-        <div className="contacts-layout reveal">
+        <div className="contacts-layout">
           <div className="contacts-info">
-            <div id="contacts-address" className="contact-block reveal">
+            <div id="contacts-address" className="contact-block">
               <p className="contact-item-label">Адрес</p>
               <p className="contact-item-value">
                 г. Барнаул, ул. Партизанская<br />
@@ -260,7 +239,7 @@ export default function App() {
               </p>
             </div>
 
-            <div className="contacts-actions reveal">
+            <div className="contacts-actions">
               <p className="contact-item-label">Связаться</p>
               <a href="tel:+73832000000" className="btn-pill-light">+7 (383) 200-00-00</a>
               <div className="socials-row">
