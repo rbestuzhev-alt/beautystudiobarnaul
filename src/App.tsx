@@ -81,6 +81,26 @@ export default function App() {
     return () => window.removeEventListener('keydown', handleEsc);
   }, []);
 
+  // Исходная плавная анимация появления блоков при скролле
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target); // Анимируем только один раз
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    const elements = document.querySelectorAll('.fade-in-up');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       {/* ПРЕЛОАДЕР */}
@@ -195,8 +215,8 @@ export default function App() {
           {/* Правая колонка — текст */}
           <div>
             <p className="about-label">О студии</p>
-            <h2 className="about-title">Концептуальная<br />бьюти-студия</h2>
-            <p className="about-text">
+            <h2 className="about-title fade-in-up">Концептуальная<br />бьюти-студия</h2>
+            <p className="about-text fade-in-up">
               Мы расположены в премиальном бизнес-центре O2 на улице Партизанской.
               Наслаждайтесь кофе из кофемашины De'Longhi, ожидая процедуру у наших мастеров.
               Мы создали атмосферу, в которую хочется возвращаться.
@@ -211,10 +231,10 @@ export default function App() {
       <section id="gallery" className="services-section">
         <div className="gallery-header">
           <p className="services-label">Атмосфера</p>
-          <h2 className="services-title">Эстетика пространства<br />и результаты работ</h2>
+          <h2 className="services-title fade-in-up">Эстетика пространства<br />и результаты работ</h2>
         </div>
 
-        <div className="gallery-masonry">
+        <div className="gallery-masonry fade-in-up">
           <div className="gallery-item gallery-item-tall photo-placeholder">[Руки мастера в работе]</div>
           <div className="gallery-item gallery-item-square photo-placeholder">[Маникюр крупным планом]</div>
           <div className="gallery-item gallery-item-wide photo-placeholder">[Интерьер O2]</div>
@@ -238,12 +258,12 @@ export default function App() {
       <section id="contacts" className="contacts-section">
         <div className="">
           <p className="contacts-label">Контакты</p>
-          <h2 className="contacts-title">Как нас найти</h2>
+          <h2 className="contacts-title fade-in-up">Как нас найти</h2>
         </div>
 
         <div className="contacts-layout">
           <div className="contacts-info">
-            <div id="contacts-address" className="contact-block">
+            <div id="contacts-address" className="contact-block fade-in-up">
               <p className="contact-item-label">Адрес</p>
               <p className="contact-item-value">
                 г. Барнаул, ул. Партизанская<br />

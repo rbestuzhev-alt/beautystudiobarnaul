@@ -1713,4 +1713,36 @@ body {
   background-color: var(--accent-birch);
 }
 
+/* ============================================
+   ИСХОДНАЯ АНИМАЦИЯ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ
+   ============================================ */
+
+.fade-in-up {
+  /* Безопасное состояние по умолчанию: элемент виден */
+  opacity: 1;
+  transform: none;
+}
+
+.fade-in-up.is-visible {
+  animation: slideUp 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Уважение к настройкам пользователя об уменьшении анимации */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up.is-visible {
+    animation: none;
+  }
+}
+
 
