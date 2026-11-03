@@ -1711,7 +1711,6 @@ body {
 
 .promo-cta:hover {
   background-color: var(--accent-birch);
-  transform: translateY(-2px);
 }
 
 
