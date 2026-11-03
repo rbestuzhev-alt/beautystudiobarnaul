@@ -49,21 +49,25 @@ export default function App() {
     setMenuOpen(false);
   };
 
-  // Анимация при скролле — Intersection Observer
+  // Scroll-triggered анимации появления (Apple-style)
+  // Безопасно удаляется: базовый .reveal всегда видим, анимация только через .is-visible
   useEffect(() => {
+    const reveals = document.querySelectorAll('.reveal');
+    if (!reveals.length) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
     );
 
-    const revealElements = document.querySelectorAll('.reveal');
-    revealElements.forEach((el) => observer.observe(el));
+    reveals.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
   }, []);
@@ -170,7 +174,7 @@ export default function App() {
 
         {/* Центральный контент */}
 <div className="hero-content">
-  <p className="hero-location">БЦ O2 • БАРНАУЛ</p>
+  <p className="hero-location reveal">БЦ O2 • БАРНАУЛ</p>
 </div>
         {/* Скролл-индикатор — стрелка вниз */}
         <div className="scroll-indicator">
@@ -193,15 +197,15 @@ export default function App() {
         <div className="about-grid reveal">
           {/* Левая колонка — фото */}
           <div className="about-photos">
-            <div className="about-photo photo-placeholder">[ФОТО мастера]</div>
-            <div className="about-photo photo-placeholder">[ФОТО интерьера]</div>
+            <div className="about-photo photo-placeholder reveal">[ФОТО мастера]</div>
+            <div className="about-photo photo-placeholder reveal">[ФОТО интерьера]</div>
           </div>
 
           {/* Правая колонка — текст */}
           <div>
-            <p className="about-label">О студии</p>
-            <h2 className="about-title">Концептуальная<br />бьюти-студия</h2>
-            <p className="about-text">
+            <p className="about-label reveal">О студии</p>
+            <h2 className="about-title reveal">Концептуальная<br />бьюти-студия</h2>
+            <p className="about-text reveal">
               Мы расположены в премиальном бизнес-центре O2 на улице Партизанской.
               Наслаждайтесь кофе из кофемашины De'Longhi, ожидая процедуру у наших мастеров.
               Мы создали атмосферу, в которую хочется возвращаться.
@@ -248,7 +252,7 @@ export default function App() {
 
         <div className="contacts-layout reveal">
           <div className="contacts-info">
-            <div id="contacts-address" className="contact-block">
+            <div id="contacts-address" className="contact-block reveal">
               <p className="contact-item-label">Адрес</p>
               <p className="contact-item-value">
                 г. Барнаул, ул. Партизанская<br />
@@ -256,7 +260,7 @@ export default function App() {
               </p>
             </div>
 
-            <div className="contacts-actions">
+            <div className="contacts-actions reveal">
               <p className="contact-item-label">Связаться</p>
               <a href="tel:+73832000000" className="btn-pill-light">+7 (383) 200-00-00</a>
               <div className="socials-row">
