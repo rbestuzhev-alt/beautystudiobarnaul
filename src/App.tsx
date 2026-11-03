@@ -336,19 +336,19 @@ export default function App() {
       {/* ============================================
           ФУТЕР
           ============================================ */}
-      <footer className="footer-light">
-        <div className="footer-logo-wrap fade-in-up">
+      <footer className="footer-light fade-in-up">
+        <div className="footer-logo-wrap">
           <span className="footer-logo">ЛВ</span>
           <span className="footer-logo-sub">Бьюти-студия</span>
         </div>
-        <p className="footer-legal fade-in-up">© 2026 ЛВ Бьюти-студия. Барнаул</p>
-        <p className="footer-legal privacy-trigger fade-in-up">
+        <p className="footer-legal">© 2026 ЛВ Бьюти-студия. Барнаул</p>
+        <p className="footer-legal privacy-trigger">
           Нажимая кнопку записи, вы соглашаетесь с{' '}
           <button className="privacy-link" onClick={() => setPrivacyOpen(true)}>
             политикой конфиденциальности
           </button>
         </p>
-        <p className="footer-legal fade-in-up">Все права защищены</p>
+        <p className="footer-legal">Все права защищены</p>
       </footer>
 
       {/* МОДАЛЬНОЕ ОКНО ПОЛИТИКИ КОНФИДЕНЦИАЛЬНОСТИ */}

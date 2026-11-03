@@ -1750,11 +1750,7 @@ body {
 .promo-subtitle.fade-in-up { transition-delay: 0.3s; }
 .promo-cta.fade-in-up { transition-delay: 0.4s; }
 
-/* Футер: лесенка 0.1s -> 0.4s */
-.footer-logo-wrap.fade-in-up { transition-delay: 0.1s; }
-.footer-legal.fade-in-up:nth-child(2) { transition-delay: 0.2s; }
-.footer-legal.privacy-trigger.fade-in-up { transition-delay: 0.3s; }
-.footer-legal.fade-in-up:nth-child(4) { transition-delay: 0.4s; }
+
 
 /* ============================================
    ПРЕМИУМ ИНТЕРАКТИВНОСТЬ ПРОМО-КАРТОЧКИ
