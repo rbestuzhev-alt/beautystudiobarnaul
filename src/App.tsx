@@ -152,31 +152,37 @@ export default function App() {
       '.privacy-link', '.burger', '.close-btn',
       '.privacy-modal__close'
     ];
-    const buttons = document.querySelectorAll(selectors.join(','));
 
-    const handleTouchStart = (e: TouchEvent) => {
-      (e.currentTarget as HTMLElement).classList.add('is-pressed');
-    };
-    const handleTouchEnd = (e: TouchEvent) => {
-      (e.currentTarget as HTMLElement).classList.remove('is-pressed');
-    };
-    const handleTouchCancel = (e: TouchEvent) => {
-      (e.currentTarget as HTMLElement).classList.remove('is-pressed');
-    };
+    // Ждём полного рендера, чтобы все кнопки точно были в DOM
+    const timer = setTimeout(() => {
+      const buttons = document.querySelectorAll(selectors.join(','));
 
-    buttons.forEach((btn) => {
-      btn.addEventListener('touchstart', handleTouchStart as EventListener, { passive: true });
-      btn.addEventListener('touchend', handleTouchEnd as EventListener, { passive: true });
-      btn.addEventListener('touchcancel', handleTouchCancel as EventListener, { passive: true });
-    });
+      const handleTouchStart = (e: TouchEvent) => {
+        (e.currentTarget as HTMLElement).classList.add('is-pressed');
+      };
+      const handleTouchEnd = (e: TouchEvent) => {
+        (e.currentTarget as HTMLElement).classList.remove('is-pressed');
+      };
+      const handleTouchCancel = (e: TouchEvent) => {
+        (e.currentTarget as HTMLElement).classList.remove('is-pressed');
+      };
 
-    return () => {
       buttons.forEach((btn) => {
-        btn.removeEventListener('touchstart', handleTouchStart as EventListener);
-        btn.removeEventListener('touchend', handleTouchEnd as EventListener);
-        btn.removeEventListener('touchcancel', handleTouchCancel as EventListener);
+        btn.addEventListener('touchstart', handleTouchStart as EventListener, { passive: true });
+        btn.addEventListener('touchend', handleTouchEnd as EventListener, { passive: true });
+        btn.addEventListener('touchcancel', handleTouchCancel as EventListener, { passive: true });
       });
-    };
+
+      return () => {
+        buttons.forEach((btn) => {
+          btn.removeEventListener('touchstart', handleTouchStart as EventListener);
+          btn.removeEventListener('touchend', handleTouchEnd as EventListener);
+          btn.removeEventListener('touchcancel', handleTouchCancel as EventListener);
+        });
+      };
+    }, 200);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
