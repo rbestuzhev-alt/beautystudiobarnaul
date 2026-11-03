@@ -1710,7 +1710,8 @@ body {
 }
 
 .promo-cta:hover {
-  background-color: var(--accent-birch);
+  background-color: var(--text);
+  color: #fff;
 }
 
 /* ============================================
