@@ -1806,39 +1806,37 @@ body {
 }
 
 /* ============================================
-   ТАЧ-ЭФФЕКТЫ ДЛЯ КНОПОК (iOS/Android)
+   ЭФФЕКТ ОТЖИМА КНОПОК (УНИВЕРСАЛЬНЫЙ)
    ============================================ */
 
-@media (hover: none) {
-  /* Убираем стандартный синий блик браузера */
-  .btn-pill,
-  .btn-phone,
-  .promo-cta,
-  .btn-pill-light,
-  .btn-pill-outline,
-  .privacy-link,
-  .burger,
-  .close-btn,
-  .privacy-modal__close {
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                filter 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
+.btn-pill,
+.btn-phone,
+.promo-cta,
+.btn-pill-light,
+.btn-pill-outline,
+.privacy-link,
+.burger,
+.close-btn,
+.privacy-modal__close {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              filter 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
 
-  /* Эффект «отжима» при нажатии */
-  .btn-pill:active,
-  .btn-phone:active,
-  .promo-cta:active,
-  .btn-pill-light:active,
-  .btn-pill-outline:active,
-  .privacy-link:active,
-  .burger:active,
-  .close-btn:active,
-  .privacy-modal__close:active {
-    transform: scale(0.96);
-    filter: brightness(0.92);
-  }
+.btn-pill:active,
+.btn-phone:active,
+.promo-cta:active,
+.btn-pill-light:active,
+.btn-pill-outline:active,
+.privacy-link:active,
+.burger:active,
+.close-btn:active,
+.privacy-modal__close:active {
+  transform: scale(0.96);
+  filter: brightness(0.92);
 }
 
 
