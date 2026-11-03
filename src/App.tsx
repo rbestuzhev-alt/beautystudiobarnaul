@@ -200,7 +200,7 @@ export default function App() {
 
       {/* ПРОМО-КАРТОЧКА: СКИДКА 20% */}
       <section className="promo-section">
-        <div className="promo-card">
+        <div className="promo-card fade-in-up">
           <div className="promo-content">
             <span className="promo-label">ПЕРВОЕ ПОСЕЩЕНИЕ</span>
             <h2 className="promo-title">20%</h2>
@@ -217,8 +217,8 @@ export default function App() {
         <div className="about-grid">
           {/* Левая колонка — фото */}
           <div className="about-photos">
-            <div className="about-photo photo-placeholder">[ФОТО мастера]</div>
-            <div className="about-photo photo-placeholder">[ФОТО интерьера]</div>
+            <div className="about-photo photo-placeholder fade-in-up">[ФОТО мастера]</div>
+            <div className="about-photo photo-placeholder fade-in-up">[ФОТО интерьера]</div>
           </div>
 
           {/* Правая колонка — текст */}
@@ -244,20 +244,20 @@ export default function App() {
         </div>
 
         <div className="gallery-masonry fade-in-up">
-          <div className="gallery-item gallery-item-tall photo-placeholder">[Руки мастера в работе]</div>
-          <div className="gallery-item gallery-item-square photo-placeholder">[Маникюр крупным планом]</div>
-          <div className="gallery-item gallery-item-wide photo-placeholder">[Интерьер O2]</div>
-          <div className="gallery-item gallery-item-square photo-placeholder">[Кофе-зона]</div>
-          <div className="gallery-item gallery-item-tall photo-placeholder">[Оформление бровей]</div>
-          <div className="gallery-item gallery-item-square photo-placeholder">[Процесс наращивания]</div>
-          <div className="gallery-item gallery-item-wide photo-placeholder">[Ресепшн]</div>
-          <div className="gallery-item gallery-item-tall photo-placeholder">[Детали укладки]</div>
-          <div className="gallery-item gallery-item-square photo-placeholder">[Растения в студии]</div>
-          <div className="gallery-item gallery-item-wide photo-placeholder">[Рабочее место мастера]</div>
-          <div className="gallery-item gallery-item-tall photo-placeholder">[Педикюр результат]</div>
-          <div className="gallery-item gallery-item-square photo-placeholder">[Полка с косметикой]</div>
-          <div className="gallery-item gallery-item-wide photo-placeholder">[Зеркальная зона]</div>
-          <div className="gallery-item gallery-item-tall photo-placeholder">[Портрет клиента]</div>
+          <div className="gallery-item gallery-item-tall photo-placeholder fade-in-up">[Руки мастера в работе]</div>
+          <div className="gallery-item gallery-item-square photo-placeholder fade-in-up">[Маникюр крупным планом]</div>
+          <div className="gallery-item gallery-item-wide photo-placeholder fade-in-up">[Интерьер O2]</div>
+          <div className="gallery-item gallery-item-square photo-placeholder fade-in-up">[Кофе-зона]</div>
+          <div className="gallery-item gallery-item-tall photo-placeholder fade-in-up">[Оформление бровей]</div>
+          <div className="gallery-item gallery-item-square photo-placeholder fade-in-up">[Процесс наращивания]</div>
+          <div className="gallery-item gallery-item-wide photo-placeholder fade-in-up">[Ресепшн]</div>
+          <div className="gallery-item gallery-item-tall photo-placeholder fade-in-up">[Детали укладки]</div>
+          <div className="gallery-item gallery-item-square photo-placeholder fade-in-up">[Растения в студии]</div>
+          <div className="gallery-item gallery-item-wide photo-placeholder fade-in-up">[Рабочее место мастера]</div>
+          <div className="gallery-item gallery-item-tall photo-placeholder fade-in-up">[Педикюр результат]</div>
+          <div className="gallery-item gallery-item-square photo-placeholder fade-in-up">[Полка с косметикой]</div>
+          <div className="gallery-item gallery-item-wide photo-placeholder fade-in-up">[Зеркальная зона]</div>
+          <div className="gallery-item gallery-item-tall photo-placeholder fade-in-up">[Портрет клиента]</div>
         </div>
       </section>
 
@@ -282,10 +282,10 @@ export default function App() {
 
             <div className="contacts-actions">
               <p className="contact-item-label">Связаться</p>
-              <a href="tel:+73832000000" className="btn-pill-light">+7 (383) 200-00-00</a>
+              <a href="tel:+73832000000" className="btn-pill-light fade-in-up">+7 (383) 200-00-00</a>
               <div className="socials-row">
-                <a href="#" className="btn-pill-outline">Telegram</a>
-                <a href="#" className="btn-pill-outline">ВКонтакте</a>
+                <a href="#" className="btn-pill-outline fade-in-up">Telegram</a>
+                <a href="#" className="btn-pill-outline fade-in-up">ВКонтакте</a>
               </div>
             </div>
           </div>
@@ -295,7 +295,7 @@ export default function App() {
       {/* ============================================
           ФУТЕР
           ============================================ */}
-      <footer className="footer-light">
+      <footer className="footer-light fade-in-up">
         <div className="footer-logo-wrap">
           <span className="footer-logo">ЛВ</span>
           <span className="footer-logo-sub">Бьюти-студия</span>
