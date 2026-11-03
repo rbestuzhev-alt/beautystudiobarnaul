@@ -50,6 +50,8 @@ export default function App() {
   };
 
   const promoCardRef = useRef<HTMLDivElement>(null);
+  const burgerRef = useRef<HTMLButtonElement>(null);
+  const closeBtnRef = useRef<HTMLButtonElement>(null);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const card = promoCardRef.current;
@@ -77,6 +79,16 @@ export default function App() {
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = 'hidden';
+      
+      // Позиционируем крестик точно на месте бургера
+      if (burgerRef.current && closeBtnRef.current) {
+        const burgerRect = burgerRef.current.getBoundingClientRect();
+        const closeBtn = closeBtnRef.current;
+        closeBtn.style.position = 'fixed';
+        closeBtn.style.top = `${burgerRect.top}px`;
+        closeBtn.style.right = `${window.innerWidth - burgerRect.right}px`;
+        closeBtn.style.left = 'auto';
+      }
     } else {
       document.body.style.overflow = '';
     }
@@ -164,6 +176,7 @@ export default function App() {
           </a>
 
           <button
+            ref={burgerRef}
             className="burger"
             onClick={() => setMenuOpen(true)}
             aria-label="Открыть меню"
@@ -181,6 +194,7 @@ export default function App() {
       <nav className={`mobile-menu ${menuOpen ? 'active' : ''}`}>
         {/* Крестик закрытия */}
         <button
+          ref={closeBtnRef}
           className="close-btn"
           onClick={() => setMenuOpen(false)}
           aria-label="Закрыть меню"
