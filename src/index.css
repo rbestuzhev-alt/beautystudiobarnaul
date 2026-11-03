@@ -1608,4 +1608,96 @@ body {
   margin-right: 0;
 }
 
+/* ============================================
+   ПРОМО-КАРТОЧКА: СКИДКА 20%
+   ============================================ */
+
+.promo-section {
+  padding: 40px 24px;
+}
+
+@media (min-width: 768px) {
+  .promo-section {
+    padding: 60px 40px;
+  }
+}
+
+.promo-card {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: var(--accent-olive);
+  border-radius: 32px;
+  overflow: hidden;
+}
+
+.promo-content {
+  padding: 64px 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .promo-content {
+    padding: 100px 80px;
+    gap: 24px;
+  }
+}
+
+.promo-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.promo-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 80px;
+  font-weight: 400;
+  line-height: 1;
+  color: #fff;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .promo-title {
+    font-size: 120px;
+  }
+}
+
+.promo-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+.promo-cta {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 16px 40px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text);
+  background-color: #fff;
+  border-radius: 999px;
+  transition: background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.promo-cta:hover {
+  background-color: var(--accent-birch);
+  transform: translateY(-2px);
+}
+
 

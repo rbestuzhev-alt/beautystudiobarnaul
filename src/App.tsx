@@ -169,6 +169,18 @@ export default function App() {
         </div>
       </section>
 
+      {/* ПРОМО-КАРТОЧКА: СКИДКА 20% */}
+      <section className="promo-section">
+        <div className="promo-card">
+          <div className="promo-content">
+            <span className="promo-label">ПЕРВОЕ ПОСЕЩЕНИЕ</span>
+            <h2 className="promo-title">20%</h2>
+            <p className="promo-subtitle">скидка на любую услугу студии</p>
+            <a href="#contacts" className="promo-cta">Записаться</a>
+          </div>
+        </div>
+      </section>
+
       {/* ============================================
           СЕКЦИЯ О СТУДИИ — Тёмный фон, две колонки
           ============================================ */}
