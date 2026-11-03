@@ -219,7 +219,7 @@ export default function App() {
 
           <button
             ref={burgerRef}
-            className="burger"
+            className={`burger ${menuOpen ? 'burger-hidden' : ''}`}
             onClick={() => setMenuOpen(true)}
             aria-label="Открыть меню"
           >
