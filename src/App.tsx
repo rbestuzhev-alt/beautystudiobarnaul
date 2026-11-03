@@ -182,7 +182,7 @@ export default function App() {
 
         {/* Центральный контент */}
 <div className="hero-content">
-  <p className="hero-location">БЦ O2 • БАРНАУЛ</p>
+  <p className="hero-location fade-in-up">БЦ O2 • БАРНАУЛ</p>
 </div>
         {/* Скролл-индикатор — стрелка вниз */}
         <div className="scroll-indicator">
@@ -223,7 +223,7 @@ export default function App() {
 
           {/* Правая колонка — текст */}
           <div>
-            <p className="about-label">О студии</p>
+            <p className="about-label fade-in-up">О студии</p>
             <h2 className="about-title fade-in-up">Концептуальная<br />бьюти-студия</h2>
             <p className="about-text fade-in-up">
               Мы расположены в премиальном бизнес-центре O2 на улице Партизанской.
@@ -239,7 +239,7 @@ export default function App() {
           ============================================ */}
       <section id="gallery" className="services-section">
         <div className="gallery-header">
-          <p className="services-label">Атмосфера</p>
+          <p className="services-label fade-in-up">Атмосфера</p>
           <h2 className="services-title fade-in-up">Эстетика пространства<br />и результаты работ</h2>
         </div>
 
@@ -266,7 +266,7 @@ export default function App() {
           ============================================ */}
       <section id="contacts" className="contacts-section">
         <div className="">
-          <p className="contacts-label">Контакты</p>
+          <p className="contacts-label fade-in-up">Контакты</p>
           <h2 className="contacts-title fade-in-up">Как нас найти</h2>
         </div>
 
