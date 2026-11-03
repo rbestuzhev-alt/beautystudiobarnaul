@@ -365,7 +365,7 @@ export default function App() {
 
             <div className="contacts-actions">
               <p className="contact-item-label">Связаться</p>
-              <a href="tel:+73832000000" className="btn-pill-light">+7 (383) 200-00-00</a>
+              <a href="tel:+79619999443" className="btn-pill-light">+7‒961‒999‒94‒43</a>
               <div className="socials-row">
                 <a href="#" className="btn-pill-outline">Telegram</a>
                 <a href="#" className="btn-pill-outline">ВКонтакте</a>
