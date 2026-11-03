@@ -49,6 +49,27 @@ export default function App() {
     setMenuOpen(false);
   };
 
+  const promoCardRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = promoCardRef.current;
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -6;
+    const rotateY = ((x - centerX) / centerX) * 6;
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  };
+
+  const handleMouseLeave = () => {
+    const card = promoCardRef.current;
+    if (!card) return;
+    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+  };
+
 
 
   // Блокировка скролла при открытом меню.
@@ -200,7 +221,13 @@ export default function App() {
 
       {/* ПРОМО-КАРТОЧКА: СКИДКА 20% */}
       <section className="promo-section">
-        <div className="promo-card">
+        <div
+          className="promo-card"
+          ref={promoCardRef}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+        >
+          <div className="promo-shimmer"></div>
           <div className="promo-content">
             <span className="promo-label fade-in-up">ПЕРВОЕ ПОСЕЩЕНИЕ</span>
             <h2 className="promo-title fade-in-up">20%</h2>

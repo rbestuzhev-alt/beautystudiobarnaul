@@ -1755,4 +1755,53 @@ body {
 .footer-legal.privacy-trigger.fade-in-up { transition-delay: 0.3s; }
 .footer-legal.fade-in-up:nth-child(4) { transition-delay: 0.4s; }
 
+/* ============================================
+   ПРЕМИУМ ИНТЕРАКТИВНОСТЬ ПРОМО-КАРТОЧКИ
+   ============================================ */
+
+/* Базовые стили для плавности tilt */
+.promo-card {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+/* Shimmer-блик (поверх паттерна, под контентом) */
+.promo-shimmer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.12) 45%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0.12) 55%,
+    transparent 60%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Десктоп: tilt + shimmer + тень объема */
+@media (hover: hover) and (pointer: fine) {
+  .promo-card:hover {
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.25);
+  }
+
+  .promo-card:hover .promo-shimmer {
+    transform: translateX(100%);
+  }
+}
+
+/* Тач: subtle scale при касании */
+@media (hover: none) {
+  .promo-card:active {
+    transform: scale(0.98) !important;
+    transition: transform 0.15s ease;
+  }
+}
+
 
