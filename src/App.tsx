@@ -222,17 +222,17 @@ export default function App() {
       {/* ПРОМО-КАРТОЧКА: СКИДКА 20% */}
       <section className="promo-section">
         <div
-          className="promo-card"
+          className="promo-card fade-in-up"
           ref={promoCardRef}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
         >
           <div className="promo-shimmer"></div>
           <div className="promo-content">
-            <span className="promo-label fade-in-up">ПЕРВОЕ ПОСЕЩЕНИЕ</span>
-            <h2 className="promo-title fade-in-up">20%</h2>
-            <p className="promo-subtitle fade-in-up">скидка на любую услугу студии</p>
-            <a href="#contacts" className="promo-cta fade-in-up">Записаться</a>
+            <span className="promo-label">ПЕРВОЕ ПОСЕЩЕНИЕ</span>
+            <h2 className="promo-title">20%</h2>
+            <p className="promo-subtitle">скидка на любую услугу студии</p>
+            <a href="#contacts" className="promo-cta">Записаться</a>
           </div>
         </div>
       </section>
