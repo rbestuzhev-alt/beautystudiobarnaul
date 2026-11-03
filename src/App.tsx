@@ -1,5 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 
+const ArrowIcon = () => (
+  <svg className="arrow-icon" viewBox="0 0 40 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="6" x2="34" y2="6" stroke="currentColor" strokeWidth="1.2" />
+    <polyline points="30,2 36,6 30,10" fill="none" stroke="currentColor" strokeWidth="1.2" />
+  </svg>
+);
+
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -209,7 +216,7 @@ export default function App() {
 
         {/* Кнопка-пилюля + бургер */}
         <div className="header-actions">
-          <button className="btn-pill">Записаться</button>
+          <button className="btn-pill arrow-link">Записаться <ArrowIcon /></button>
 
           <a href="#contacts-address" className="btn-phone" aria-label="Позвонить" onClick={scrollToAddress}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -288,7 +295,7 @@ export default function App() {
             <span className="promo-label">ПЕРВОЕ ПОСЕЩЕНИЕ</span>
             <h2 className="promo-title">20%</h2>
             <p className="promo-subtitle">скидка на любую услугу студии</p>
-            <a href="#contacts" className="promo-cta">Записаться</a>
+            <a href="#contacts" className="promo-cta arrow-link fade-in-up">Записаться <ArrowIcon /></a>
           </div>
         </div>
       </section>
@@ -367,8 +374,8 @@ export default function App() {
               <p className="contact-item-label">Связаться</p>
               <a href="tel:+79619999443" className="btn-pill-light">+7 (961) 999-94-43</a>
               <div className="socials-row">
-                <a href="https://max.ru/u/f9LHodD0cOITR0eB6dlikQoq3quPiLrbC8M3_vb23Iv1v4nvlBy7H_E5cP0" className="btn-pill-outline">MAX</a>
-                <a href="https://api.whatsapp.com/send/?phone=79619999443" className="btn-pill-outline">WhatsApp</a>
+                <a href="https://max.ru/u/f9LHodD0cOITR0eB6dlikQoq3quPiLrbC8M3_vb23Iv1v4nvlBy7H_E5cP0" target="_blank" rel="noopener noreferrer" className="btn-pill-outline arrow-link fade-in-up">MAX <ArrowIcon /></a>
+                <a href="https://api.whatsapp.com/send/?phone=79619999443" target="_blank" rel="noopener noreferrer" className="btn-pill-outline arrow-link fade-in-up">WhatsApp <ArrowIcon /></a>
               </div>
             </div>
           </div>
