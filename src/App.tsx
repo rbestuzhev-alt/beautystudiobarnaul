@@ -270,22 +270,22 @@ export default function App() {
           <h2 className="contacts-title fade-in-up">Как нас найти</h2>
         </div>
 
-        <div className="contacts-layout">
+        <div className="contacts-layout fade-in-up">
           <div className="contacts-info">
-            <div id="contacts-address" className="contact-block fade-in-up">
-              <p className="contact-item-label fade-in-up">Адрес</p>
-              <p className="contact-item-value fade-in-up">
+            <div id="contacts-address" className="contact-block">
+              <p className="contact-item-label">Адрес</p>
+              <p className="contact-item-value">
                 г. Барнаул, ул. Партизанская<br />
                 БЦ O2, 2 этаж
               </p>
             </div>
 
             <div className="contacts-actions">
-              <p className="contact-item-label fade-in-up">Связаться</p>
-              <a href="tel:+73832000000" className="btn-pill-light fade-in-up">+7 (383) 200-00-00</a>
+              <p className="contact-item-label">Связаться</p>
+              <a href="tel:+73832000000" className="btn-pill-light">+7 (383) 200-00-00</a>
               <div className="socials-row">
-                <a href="#" className="btn-pill-outline fade-in-up">Telegram</a>
-                <a href="#" className="btn-pill-outline fade-in-up">ВКонтакте</a>
+                <a href="#" className="btn-pill-outline">Telegram</a>
+                <a href="#" className="btn-pill-outline">ВКонтакте</a>
               </div>
             </div>
           </div>
