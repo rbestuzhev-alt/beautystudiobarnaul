@@ -1866,4 +1866,52 @@ body {
   transform: scale(0.8);
 }
 
+/* ============================================
+   СТРЕЛКИ ВНЕШНЕГО ПЕРЕХОДА
+   ============================================ */
+
+/* Кнопки, ведущие на внешние ресурсы */
+.btn-pill,
+.promo-cta,
+.btn-pill-outline {
+  padding-right: 40px; /* место для стрелки */
+  position: relative;
+}
+
+/* Стрелка-индикатор */
+.btn-pill::after,
+.promo-cta::after,
+.btn-pill-outline::after {
+  content: '';
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17L17 7M17 7H7M17 7V17'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+}
+
+/* Цвет стрелки для светлых кнопок (хедер, промо) */
+.btn-pill::after,
+.promo-cta::after {
+  /* inherit от color кнопки */
+}
+
+/* Цвет стрелки для outline-кнопок (Max, WhatsApp) — берём из текущего цвета текста */
+.btn-pill-outline::after {
+  /* inherit от color кнопки */
+}
+
+/* Сдвиг стрелки при наведении */
+.btn-pill:hover::after,
+.promo-cta:hover::after,
+.btn-pill-outline:hover::after {
+  transform: translateY(-50%) translateX(4px);
+}
+
 
