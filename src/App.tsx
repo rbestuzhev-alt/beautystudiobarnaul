@@ -200,12 +200,12 @@ export default function App() {
 
       {/* ПРОМО-КАРТОЧКА: СКИДКА 20% */}
       <section className="promo-section">
-        <div className="promo-card fade-in-up">
+        <div className="promo-card">
           <div className="promo-content">
-            <span className="promo-label">ПЕРВОЕ ПОСЕЩЕНИЕ</span>
-            <h2 className="promo-title">20%</h2>
-            <p className="promo-subtitle">скидка на любую услугу студии</p>
-            <a href="#contacts" className="promo-cta">Записаться</a>
+            <span className="promo-label fade-in-up">ПЕРВОЕ ПОСЕЩЕНИЕ</span>
+            <h2 className="promo-title fade-in-up">20%</h2>
+            <p className="promo-subtitle fade-in-up">скидка на любую услугу студии</p>
+            <a href="#contacts" className="promo-cta fade-in-up">Записаться</a>
           </div>
         </div>
       </section>
@@ -295,19 +295,19 @@ export default function App() {
       {/* ============================================
           ФУТЕР
           ============================================ */}
-      <footer className="footer-light fade-in-up">
-        <div className="footer-logo-wrap">
+      <footer className="footer-light">
+        <div className="footer-logo-wrap fade-in-up">
           <span className="footer-logo">ЛВ</span>
           <span className="footer-logo-sub">Бьюти-студия</span>
         </div>
-        <p className="footer-legal">© 2026 ЛВ Бьюти-студия. Барнаул</p>
-        <p className="footer-legal privacy-trigger">
+        <p className="footer-legal fade-in-up">© 2026 ЛВ Бьюти-студия. Барнаул</p>
+        <p className="footer-legal privacy-trigger fade-in-up">
           Нажимая кнопку записи, вы соглашаетесь с{' '}
           <button className="privacy-link" onClick={() => setPrivacyOpen(true)}>
             политикой конфиденциальности
           </button>
         </p>
-        <p className="footer-legal">Все права защищены</p>
+        <p className="footer-legal fade-in-up">Все права защищены</p>
       </footer>
 
       {/* МОДАЛЬНОЕ ОКНО ПОЛИТИКИ КОНФИДЕНЦИАЛЬНОСТИ */}
