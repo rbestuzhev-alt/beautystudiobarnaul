@@ -143,6 +143,42 @@ export default function App() {
     };
   }, []);
 
+  // Надежный тач-эффект для кнопок: :active на мобильных часто «залипает»,
+  // поэтому используем touchstart/touchend с классом .is-pressed
+  useEffect(() => {
+    const selectors = [
+      '.btn-pill', '.btn-phone', '.promo-cta',
+      '.btn-pill-light', '.btn-pill-outline',
+      '.privacy-link', '.burger', '.close-btn',
+      '.privacy-modal__close'
+    ];
+    const buttons = document.querySelectorAll(selectors.join(','));
+
+    const handleTouchStart = (e: TouchEvent) => {
+      (e.currentTarget as HTMLElement).classList.add('is-pressed');
+    };
+    const handleTouchEnd = (e: TouchEvent) => {
+      (e.currentTarget as HTMLElement).classList.remove('is-pressed');
+    };
+    const handleTouchCancel = (e: TouchEvent) => {
+      (e.currentTarget as HTMLElement).classList.remove('is-pressed');
+    };
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('touchstart', handleTouchStart as EventListener, { passive: true });
+      btn.addEventListener('touchend', handleTouchEnd as EventListener, { passive: true });
+      btn.addEventListener('touchcancel', handleTouchCancel as EventListener, { passive: true });
+    });
+
+    return () => {
+      buttons.forEach((btn) => {
+        btn.removeEventListener('touchstart', handleTouchStart as EventListener);
+        btn.removeEventListener('touchend', handleTouchEnd as EventListener);
+        btn.removeEventListener('touchcancel', handleTouchCancel as EventListener);
+      });
+    };
+  }, []);
+
   return (
     <>
       {/* ПРЕЛОАДЕР */}

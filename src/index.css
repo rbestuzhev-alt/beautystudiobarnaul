@@ -1802,9 +1802,10 @@ body {
 }
 
 /* ============================================
-   ЭФФЕКТ ОТЖИМА КНОПОК (УНИВЕРСАЛЬНЫЙ)
+   ЭФФЕКТ ОТЖИМА КНОПОК (УНИВЕРСАЛЬНЫЙ + ТАЧ)
    ============================================ */
 
+/* Базовые стили для всех кнопок */
 .btn-pill,
 .btn-phone,
 .promo-cta,
@@ -1822,17 +1823,36 @@ body {
               filter 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.btn-pill:active,
-.btn-phone:active,
-.promo-cta:active,
-.btn-pill-light:active,
-.btn-pill-outline:active,
-.privacy-link:active,
-.burger:active,
-.close-btn:active,
-.privacy-modal__close:active {
-  transform: scale(0.96);
-  filter: brightness(0.92);
+/* Десктоп: отжим через :active (работает при клике мышью) */
+@media (hover: hover) {
+  .btn-pill:active,
+  .btn-phone:active,
+  .promo-cta:active,
+  .btn-pill-light:active,
+  .btn-pill-outline:active,
+  .privacy-link:active,
+  .burger:active,
+  .close-btn:active,
+  .privacy-modal__close:active {
+    transform: scale(0.96);
+    filter: brightness(0.92);
+  }
+}
+
+/* Тач: отжим через класс .is-pressed (добавляется JS) */
+@media (hover: none), (pointer: coarse) {
+  .btn-pill.is-pressed,
+  .btn-phone.is-pressed,
+  .promo-cta.is-pressed,
+  .btn-pill-light.is-pressed,
+  .btn-pill-outline.is-pressed,
+  .privacy-link.is-pressed,
+  .burger.is-pressed,
+  .close-btn.is-pressed,
+  .privacy-modal__close.is-pressed {
+    transform: scale(0.96);
+    filter: brightness(0.92);
+  }
 }
 
 
