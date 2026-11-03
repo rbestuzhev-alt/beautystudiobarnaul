@@ -81,7 +81,7 @@ export default function App() {
     return () => window.removeEventListener('keydown', handleEsc);
   }, []);
 
-  // Исходная плавная анимация появления блоков при скролле
+  // Плавная анимация появления при скролле (Industry Standard)
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -92,13 +92,22 @@ export default function App() {
           }
         });
       },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      { 
+        threshold: 0.1, 
+        rootMargin: '0px 0px -5% 0px' // Срабатывает, когда 10% элемента видно, с небольшим запасом снизу
+      }
     );
 
-    const elements = document.querySelectorAll('.fade-in-up');
-    elements.forEach((el) => observer.observe(el));
+    // Небольшая задержка, чтобы гарантировать, что DOM полностью отрисован
+    const timer = setTimeout(() => {
+      const elements = document.querySelectorAll('.fade-in-up');
+      elements.forEach((el) => observer.observe(el));
+    }, 100);
 
-    return () => observer.disconnect();
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
   }, []);
 
   return (

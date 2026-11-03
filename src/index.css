@@ -1714,34 +1714,28 @@ body {
 }
 
 /* ============================================
-   ИСХОДНАЯ АНИМАЦИЯ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ
+   ПЛАВНАЯ АНИМАЦИЯ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ (TRANSITION)
    ============================================ */
 
 .fade-in-up {
-  /* Безопасное состояние по умолчанию: элемент виден */
-  opacity: 1;
-  transform: none;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
 }
 
 .fade-in-up.is-visible {
-  animation: slideUp 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  opacity: 1;
+  transform: translateY(0);
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Уважение к настройкам пользователя об уменьшении анимации */
+/* Для пользователей, отключивших анимации в ОС, показываем контент сразу */
 @media (prefers-reduced-motion: reduce) {
-  .fade-in-up.is-visible {
-    animation: none;
+  .fade-in-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 
