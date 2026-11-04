@@ -394,9 +394,6 @@ export default function App() {
           <span className="footer-logo">ЛВ</span>
           <span className="footer-logo-sub">Бьюти-студия</span>
         </div>
-        <p className="footer-disclaimer fade-in-up">
-          <sup>*</sup> Скидка распространяется на первое посещение салона. Условия и стоимость услуги после применения скидки обсуждаются индивидуально.
-        </p>
         <p className="footer-legal fade-in-up">© 2026 ЛВ Бьюти-студия. Барнаул</p>
         <p className="footer-legal privacy-trigger fade-in-up">
           Нажимая кнопку записи, вы соглашаетесь с{' '}
@@ -405,6 +402,9 @@ export default function App() {
           </button>
         </p>
         <p className="footer-legal fade-in-up">Все права защищены</p>
+        <p className="footer-legal fade-in-up">
+          <sup>*</sup> Скидка распространяется на первое посещение салона. Условия и стоимость услуги после применения скидки обсуждаются индивидуально.
+        </p>
       </footer>
 
       {/* МОДАЛЬНОЕ ОКНО ПОЛИТИКИ КОНФИДЕНЦИАЛЬНОСТИ */}

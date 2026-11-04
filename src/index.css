@@ -1970,24 +1970,7 @@ body {
   font-weight: 300;
 }
 
-/* Сноска в футере */
-.footer-disclaimer {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 300;
-  line-height: 1.6;
-  color: rgba(74, 74, 74, 0.5);
-  max-width: 600px;
-  margin: 0 auto 24px;
-  padding: 0 24px;
-}
 
-.footer-disclaimer sup {
-  font-size: 1.1em;
-  vertical-align: super;
-  margin-right: 5px;
-  opacity: 0.8;
-}
 
 /* ============================================
    APPLE HIG: МИНИМАЛЬНЫЙ HITBOX 44×44pt
