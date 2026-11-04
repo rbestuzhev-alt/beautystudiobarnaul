@@ -1,0 +1,2061 @@
+@import "tailwindcss";
+
+/* ============================================
+   CSS ПЕРЕМЕННЫЕ — Цветовая палитра
+   ============================================ */
+:root {
+  --bg: #FAFAF8;
+  --text: #4A4A4A;
+  --accent-beige: #E8D5C0;
+  --accent-birch: #CDB891;
+  --accent-olive: #7A8B6F;
+}
+
+/* ============================================
+   БАЗОВЫЕ СТИЛИ
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* ============================================
+   ТИПОГРАФИКА
+   ============================================ */
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+/* ============================================
+   ХЕДЕР — Fixed, blur, минимализм
+   ============================================ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(250, 250, 248, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  padding-top: env(safe-area-inset-top);
+}
+
+@media (min-width: 1200px) {
+  .header {
+    height: 100px;
+    padding: 0 60px;
+  }
+}
+
+/* Логотип */
+.logo-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: var(--text);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.logo-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  color: var(--text);
+  opacity: 0.5;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* Кнопка записаться */
+.btn-header {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--text);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.btn-header:hover {
+  color: var(--accent-birch);
+}
+
+/* Бургер-меню */
+.burger {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 8px;
+}
+
+.burger span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background-color: var(--text);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (min-width: 1200px) {
+  header .burger,
+  .header .burger {
+    display: none !important;
+  }
+  .btn-header-desktop {
+    display: block;
+  }
+}
+
+@media (max-width: 1199px) {
+  .btn-header-desktop {
+    display: none;
+  }
+}
+
+/* Мобильное меню */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--bg);
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.mobile-menu.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-menu a {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.mobile-menu a:hover {
+  color: var(--accent-birch);
+}
+
+/* Крестик закрытия */
+.close-btn {
+  position: absolute;
+  top: 28px;
+  right: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn::before,
+.close-btn::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 1.5px;
+  background-color: var(--text);
+}
+
+.close-btn::before {
+  transform: rotate(45deg);
+}
+
+.close-btn::after {
+  transform: rotate(-45deg);
+}
+
+/* ============================================
+   HERO СЕКЦИЯ
+   ============================================ */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--accent-beige);
+  background-image: url('/images/i (10).webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Градиент поверх фона */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, transparent 0%, rgba(74, 74, 74, 0.3) 100%);
+  z-index: 1;
+}
+
+/* Контент hero */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  animation: fadeIn 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-location {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: rgba(250, 250, 248, 0.7);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  color: var(--bg);
+  line-height: 1.05;
+  font-weight: 400;
+  text-align: center;
+  padding: 0 20px;
+}
+
+@media (min-width: 1200px) {
+  .hero-title {
+    font-size: 80px;
+  }
+}
+
+/* Бейдж скидки */
+.discount-badge {
+  position: absolute;
+  top: 120px;
+  right: 40px;
+  z-index: 3;
+  background-color: var(--accent-birch);
+  padding: 8px 16px;
+  border-radius: 2px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--bg);
+  letter-spacing: 0.1em;
+}
+
+/* Скролл-индикатор */
+.scroll-indicator {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  animation: bounce 2s infinite cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(8px);
+  }
+}
+
+/* ============================================
+   СЕКЦИЯ О СТУДИИ
+   ============================================ */
+.about-section {
+  background-color: var(--text);
+  color: var(--bg);
+  padding: 200px 40px;
+}
+
+@media (min-width: 1200px) {
+  .about-section {
+    padding: 280px 120px;
+  }
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1200px) {
+  .about-grid {
+    grid-template-columns: 40% 60%;
+    gap: 80px;
+    align-items: center;
+  }
+}
+
+/* Фото в секции "О студии" */
+.about-photos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-photo {
+  width: 100%;
+  height: 400px;
+  background-color: var(--accent-beige);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: rgba(74, 74, 74, 0.5);
+  letter-spacing: 0.1em;
+}
+
+@media (min-width: 768px) {
+  .about-photo {
+    height: 500px;
+  }
+}
+
+/* Контент "О студии" */
+.about-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--accent-beige);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.about-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: var(--bg);
+  line-height: 1.1;
+  font-weight: 400;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 1200px) {
+  .about-title {
+    font-size: 56px;
+  }
+}
+
+.about-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: rgba(250, 250, 248, 0.7);
+  line-height: 1.8;
+  font-weight: 300;
+  max-width: 500px;
+}
+
+.about-text + .about-text {
+  margin-top: 24px;
+}
+
+/* ============================================
+   СЕКЦИЯ УСЛУГИ
+   ============================================ */
+.services-section {
+  background-color: var(--bg);
+  padding: 200px 40px;
+}
+
+@media (min-width: 1200px) {
+  .services-section {
+    padding: 280px 120px;
+  }
+}
+
+.services-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--accent-olive);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+}
+
+.services-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: var(--text);
+  line-height: 1.1;
+  font-weight: 400;
+  margin-bottom: 80px;
+  max-width: 600px;
+}
+
+@media (min-width: 1200px) {
+  .services-title {
+    font-size: 56px;
+    margin-bottom: 120px;
+  }
+}
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  max-width: 800px;
+}
+
+@media (min-width: 1200px) {
+  .services-list {
+    gap: 56px;
+  }
+}
+
+.service-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid rgba(74, 74, 74, 0.1);
+  padding-bottom: 32px;
+}
+
+.service-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: var(--text);
+  font-weight: 400;
+}
+
+@media (min-width: 1200px) {
+  .service-name {
+    font-size: 28px;
+  }
+}
+
+.service-price {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: rgba(74, 74, 74, 0.5);
+  font-weight: 300;
+}
+
+/* ============================================
+   СЕКЦИЯ МАСТЕРА
+   ============================================ */
+.masters-section {
+  background-color: var(--bg);
+  padding: 200px 40px;
+}
+
+@media (min-width: 1200px) {
+  .masters-section {
+    padding: 280px 120px;
+  }
+}
+
+.masters-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--accent-olive);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+}
+
+.masters-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: var(--text);
+  line-height: 1.1;
+  font-weight: 400;
+  margin-bottom: 80px;
+}
+
+@media (min-width: 1200px) {
+  .masters-title {
+    font-size: 56px;
+    margin-bottom: 120px;
+  }
+}
+
+.masters-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 60px;
+  max-width: 1200px;
+}
+
+@media (min-width: 768px) {
+  .masters-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+}
+
+.master-card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.master-photo {
+  width: 100%;
+  height: 500px;
+  background-color: var(--accent-beige);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: rgba(74, 74, 74, 0.5);
+  letter-spacing: 0.1em;
+}
+
+.master-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: var(--text);
+  font-weight: 400;
+}
+
+.master-role {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: rgba(74, 74, 74, 0.5);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================
+   СЕКЦИЯ КОНТАКТЫ
+   ============================================ */
+.contacts-section {
+  background-color: var(--text);
+  color: var(--bg);
+  padding: 200px 40px;
+}
+
+@media (min-width: 1200px) {
+  .contacts-section {
+    padding: 280px 120px;
+  }
+}
+
+.contacts-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--accent-beige);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+}
+
+.contacts-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: var(--bg);
+  line-height: 1.1;
+  font-weight: 400;
+  margin-bottom: 80px;
+}
+
+@media (min-width: 1200px) {
+  .contacts-title {
+    font-size: 56px;
+    margin-bottom: 120px;
+  }
+}
+
+.contacts-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  max-width: 800px;
+}
+
+@media (min-width: 768px) {
+  .contacts-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+}
+
+.contact-item-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: rgba(250, 250, 248, 0.4);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.contact-item-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: rgba(250, 250, 248, 0.8);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.contact-item-value a {
+  color: rgba(250, 250, 248, 0.8);
+  text-decoration: none;
+  transition: color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.contact-item-value a:hover {
+  color: var(--accent-beige);
+}
+
+/* ============================================
+   ФУТЕР
+   ============================================ */
+.footer {
+  background-color: var(--text);
+  border-top: 1px solid rgba(250, 250, 248, 0.08);
+  padding: 40px;
+  text-align: center;
+}
+
+.footer-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: rgba(250, 250, 248, 0.3);
+  letter-spacing: 0.1em;
+}
+
+/* ============================================
+   АНИМАЦИИ ПРИ СКРОЛЛЕ
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1),
+              transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   ПЛЕЙСХОЛДЕР ФОТО
+   ============================================ */
+.photo-placeholder {
+  background-color: var(--accent-beige);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: rgba(74, 74, 74, 0.4);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ============================================
+   MASONRY ГАЛЕРЕЯ — Разноразмерные фото
+   ============================================ */
+
+.gallery-masonry {
+  column-count: 1;
+  column-gap: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .gallery-masonry {
+    column-count: 2;
+    column-gap: 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .gallery-masonry {
+    column-count: 3;
+    column-gap: 24px;
+  }
+}
+
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 16px;
+  background-color: var(--accent-beige);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: rgba(74, 74, 74, 0.5);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .gallery-item {
+    margin-bottom: 20px;
+  }
+}
+
+/* Разные пропорции для эффекта Masonry */
+.gallery-item-tall {
+  aspect-ratio: 3/4;
+}
+
+.gallery-item-square {
+  aspect-ratio: 1/1;
+}
+
+.gallery-item-wide {
+  aspect-ratio: 4/3;
+}
+
+/* ============================================
+   ЦЕНТРИРОВАННЫЙ ЗАГОЛОВОК ГАЛЕРЕИ
+   ============================================ */
+
+.gallery-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+@media (min-width: 1200px) {
+  .gallery-header {
+    margin-bottom: 120px;
+  }
+}
+
+.gallery-header .services-label {
+  margin-bottom: 32px;
+}
+
+.gallery-header .services-title {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+}
+
+/* ============================================
+   КНОПКА-ПИЛЮЛЯ «ЗАПИСАТЬСЯ» (как у BURO.Beauty)
+   ============================================ */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+@media (min-width: 1200px) {
+  .header-actions {
+    gap: 24px;
+  }
+}
+
+.btn-pill {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background-color: var(--text);
+  border: none;
+  border-radius: 999px;
+  padding: 10px 16px 10px 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.btn-pill:hover {
+  background-color: var(--accent-birch);
+  color: var(--text);
+}
+
+@media (min-width: 1200px) {
+  .btn-pill {
+    font-size: 11px;
+    padding: 14px 28px 14px 24px;
+  }
+}
+
+/* ============================================
+   КОНТАКТЫ: ПРЕМИАЛЬНАЯ КОМПОЗИЦИЯ + ПИЛЮЛИ
+   ============================================ */
+
+.contacts-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 64px;
+  max-width: 1400px;
+}
+
+@media (min-width: 1200px) {
+  .contacts-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 120px;
+  }
+}
+
+.contacts-info {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.contacts-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.socials-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.btn-pill-light {
+  display: inline-block;
+  width: auto;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text);
+  background-color: var(--bg);
+  border: none;
+  border-radius: 999px;
+  padding: 16px 32px;
+  cursor: pointer;
+  transition: background-color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.btn-pill-light:hover {
+  background-color: var(--accent-birch);
+  color: var(--text);
+}
+
+.btn-pill-outline {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(250, 250, 248, 0.8);
+  background: transparent;
+  border: 1px solid rgba(250, 250, 248, 0.3);
+  border-radius: 999px;
+  padding: 13px 24px 13px 20px;
+  cursor: pointer;
+  transition: border-color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.btn-pill-outline:hover {
+  border-color: var(--accent-birch);
+  color: var(--accent-birch);
+}
+
+/* ============================================
+   СВЕТЛЫЙ ПОДВАЛ С ВОДМАРКОМ (как у BURO.Beauty)
+   ============================================ */
+
+.footer-light {
+  background-color: var(--accent-beige);
+  text-align: center;
+  padding: 100px 24px;
+}
+
+@media (min-width: 1200px) {
+  .footer-light {
+    padding: 140px 60px;
+  }
+}
+
+.footer-logo-wrap {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 56px;
+}
+
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--text);
+}
+
+.footer-logo-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text);
+  opacity: 0.6;
+}
+
+.footer-legal {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+  color: var(--text);
+  opacity: 0.55;
+}
+
+.footer-legal + .footer-legal {
+  margin-top: 4px;
+}
+
+/* ============================================
+   HOVER: ПОЛНАЯ ЗАЛИВКА КОНТУРНЫХ ПИЛЮЛЬ
+   ============================================ */
+
+.btn-pill-outline:hover {
+  background-color: var(--accent-birch);
+  border-color: var(--accent-birch);
+  color: var(--text);
+}
+
+/* ============================================
+   КОНТАКТЫ: ПРЕМИАЛЬНОЕ ЦЕНТРИРОВАНИЕ
+   ============================================ */
+
+.contacts-label,
+.contacts-title {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 700px;
+}
+
+.contacts-layout {
+  display: flex;
+  justify-content: center;
+}
+
+.contacts-info {
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 700px;
+}
+
+.contacts-actions {
+  align-items: center;
+  width: 100%;
+}
+
+.socials-row {
+  justify-content: center;
+}
+
+/* ============================================
+   КОНТАКТЫ: ФИНАЛЬНОЕ СТАБИЛЬНОЕ ЦЕНТРИРОВАНИЕ
+   ============================================ */
+
+.contacts-section .contacts-label,
+.contacts-section .contacts-title {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 700px;
+}
+
+.contacts-section .contacts-layout {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contacts-section .contacts-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contacts-section .contact-item-value {
+  text-align: center;
+}
+
+.contacts-section .contacts-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.contacts-section .socials-row {
+  justify-content: center;
+}
+
+/* ============================================
+   СЕКЦИЯ О СТУДИИ: АДАПТИВНОЕ ЦЕНТРИРОВАНИЕ
+   ============================================ */
+
+/* До 1200px — центрированная премиум-колонна */
+.about-section .about-photo {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-section .about-label,
+.about-section .about-title,
+.about-section .about-text {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-section .about-text {
+  max-width: 700px;
+}
+
+/* От 1200px — возврат к двухколоночной схеме */
+@media (min-width: 1200px) {
+  .about-section .about-photo {
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .about-section .about-label,
+  .about-section .about-title,
+  .about-section .about-text {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* ============================================
+   ПОДВАЛ: КОМПАКТНЕЕ ВОЗДУХ
+   ============================================ */
+
+.footer-light {
+  padding: 64px 24px;
+  padding-bottom: calc(64px + env(safe-area-inset-bottom));
+}
+
+.footer-logo-wrap {
+  margin-bottom: 40px;
+}
+
+@media (min-width: 1200px) {
+  .footer-light {
+    padding: 80px 60px;
+  }
+}
+
+/* ============================================
+   БУРГЕР: ТРИ ОДИНАКОВЫЕ ПОЛОСКИ
+   ============================================ */
+
+.header .burger span {
+  width: 24px;
+  height: 2px;
+  border-radius: 0;
+  background-color: var(--text);
+}
+
+/* ============================================
+   АНТИ-ПОДЁРГИВАНИЕ: СТАБИЛЬНЫЙ ГУТТЕР СКРОЛЛБАРА
+   ============================================ */
+
+html,
+body {
+  scrollbar-gutter: stable;
+}
+
+/* ============================================
+   ГАЛЕРЕЯ: БОЛЬШЕ ФОТО, МЕЛЬЧЕ РАЗМЕР
+   ============================================ */
+
+.gallery-masonry {
+  column-count: 2;
+  column-gap: 12px;
+  direction: rtl;
+}
+
+.gallery-item {
+  margin-bottom: 12px;
+  direction: ltr;
+}
+
+@media (min-width: 768px) {
+  .gallery-masonry {
+    column-count: 3;
+    column-gap: 16px;
+  }
+
+  .gallery-item {
+    margin-bottom: 16px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .gallery-masonry {
+    column-count: 4;
+    column-gap: 20px;
+  }
+
+  .gallery-item {
+    margin-bottom: 20px;
+  }
+}
+
+/* ============================================
+   ХЕДЕР: КНОПКА БЛИЖЕ К ПРАВОМУ КРАЮ
+   ============================================ */
+
+@media (min-width: 1200px) {
+  .header {
+    padding-left: 60px;
+    padding-right: 32px;
+  }
+}
+
+/* ============================================
+   МОДАЛЬНОЕ ОКНО ПОЛИТИКИ КОНФИДЕНЦИАЛЬНОСТИ
+   ============================================ */
+
+.privacy-trigger {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.privacy-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  opacity: 0.7;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.privacy-link:hover {
+  opacity: 1;
+  color: var(--text);
+  text-decoration-color: var(--accent-birch);
+}
+
+.privacy-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background: rgba(74, 74, 74, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.privacy-modal__content {
+  background: var(--bg);
+  width: 100%;
+  max-width: 680px;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 48px 32px;
+  position: relative;
+  border-radius: 2px;
+  animation: slideUp 0.4s ease forwards;
+}
+
+@media (min-width: 768px) {
+  .privacy-modal__content {
+    padding: 64px 56px;
+  }
+}
+
+.privacy-modal__close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  font-size: 32px;
+  line-height: 1;
+  color: var(--text);
+  cursor: pointer;
+  opacity: 0.5;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.privacy-modal__close:hover {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+.privacy-modal__title {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 40px;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .privacy-modal__title {
+    font-size: 42px;
+  }
+}
+
+.privacy-modal__title em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.privacy-modal__text {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .privacy-modal__text {
+    font-size: 15px;
+  }
+}
+
+.privacy-item strong {
+  font-weight: 600;
+  color: var(--text);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   КРУГЛАЯ КНОПКА ЗВОНКА (ДЕСКТОП)
+   ============================================ */
+
+.btn-phone {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--text);
+  color: var(--bg);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.btn-phone:hover {
+  background-color: var(--accent-birch);
+  color: var(--text);
+}
+
+@media (min-width: 1200px) {
+  .btn-phone {
+    display: flex;
+  }
+}
+
+/* ============================================
+   ХЕДЕР: СБЛИЖЕНИЕ КНОПОК НА ДЕСКТОПЕ
+   ============================================ */
+
+@media (min-width: 1200px) {
+  .header-actions {
+    gap: 16px;
+  }
+}
+
+/* ============================================
+   ЛОГОТИП: КРУПНЕЕ И ВЫРАЗИТЕЛЬНЕЕ
+   ============================================ */
+
+.logo-text {
+  font-size: 40px;
+}
+
+.logo-subtitle {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* ============================================
+   ПОДПИСЬ ЛОГОТИПА: ПОКАЗЫВАТЬ ОТ 740PX
+   ============================================ */
+
+@media (min-width: 740px) {
+  .logo-subtitle {
+    display: block !important;
+  }
+}
+
+/* ============================================
+   ЛОГОТИП: КОМПАКТНЕЕ С БУРГЕРОМ
+   ============================================ */
+
+@media (max-width: 1199px) {
+  .logo-text {
+    font-size: 32px;
+  }
+}
+
+/* ============================================
+   МОБИЛЬНОЕ МЕНЮ: АНИМАЦИЯ КАК У МОДАЛКИ
+   ============================================ */
+
+.mobile-menu {
+  background: rgba(250, 250, 248, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.mobile-menu.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.close-btn {
+  width: auto;
+  height: auto;
+  font-size: 40px;
+  line-height: 1;
+  color: var(--text);
+  opacity: 0.5;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.close-btn::before,
+.close-btn::after {
+  display: none;
+}
+
+.close-btn:hover {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+/* ============================================
+   КОМПЕНСАЦИЯ ФИКСИРОВАННОГО ХЕДЕРА ПРИ ЯКОРНОМ СКРОЛЛЕ
+   ============================================ */
+
+.contacts-section {
+  scroll-margin-top: 80px;
+}
+
+@media (max-width: 1199px) {
+  .contacts-section {
+    scroll-margin-top: 60px;
+  }
+}
+
+/* ============================================
+   ПРЕЛОАДЕР
+   ============================================ */
+
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  background-color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeOut 0.6s ease 0.4s forwards;
+}
+
+.preloader-content {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10px);
+  filter: blur(4px);
+  animation: preloaderReveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes preloaderReveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.preloader-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--text);
+  margin: 0;
+  padding: 0 24px;
+}
+
+@media (min-width: 1200px) {
+  .preloader-title {
+    font-size: 80px;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* ============================================
+   ФИРМЕННОЕ ВЫДЕЛЕНИЕ ТЕКСТА
+   ============================================ */
+
+::selection {
+  background-color: var(--accent-birch);
+  color: var(--text);
+}
+
+::-moz-selection {
+  background-color: var(--accent-birch);
+  color: var(--text);
+}
+
+/* ============================================
+   APPLE-СТИЛЬ: МАСШТАБНАЯ ТИПОГРАФИКА
+   ============================================ */
+
+.section-title,
+.hero-title {
+  font-size: 48px;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+@media (min-width: 1200px) {
+  .section-title,
+  .hero-title {
+    font-size: 72px;
+  }
+}
+
+.section-label {
+  font-size: 13px;
+  letter-spacing: 0.15em;
+}
+
+.about-text,
+.contact-item-value {
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.hero-section,
+.about-section,
+.gallery-section,
+.contacts-section {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+@media (min-width: 1200px) {
+  .hero-section,
+  .about-section,
+  .gallery-section,
+  .contacts-section {
+    padding-top: 160px;
+    padding-bottom: 160px;
+  }
+}
+
+/* ============================================
+   APPLE-СТИЛЬ: FROSTED GLASS ХЕДЕР
+   ============================================ */
+
+.header {
+  background: rgba(250, 250, 248, 0.85);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  box-shadow: none;
+}
+
+.mobile-menu a {
+  font-size: 15px;
+  letter-spacing: 0.02em;
+}
+
+/* ============================================
+   APPLE-СТИЛЬ: СТРОГАЯ СЕТКА + EDGE-TO-EDGE
+   ============================================ */
+
+.about-content,
+.contacts-info,
+.section-content {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-photo {
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* ============================================
+   ПРОМО-КАРТОЧКА: СКИДКА 20%
+   ============================================ */
+
+.promo-section {
+  padding: 40px 24px;
+}
+
+@media (min-width: 768px) {
+  .promo-section {
+    padding: 60px 40px;
+  }
+}
+
+.promo-card {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: var(--accent-olive);
+  border-radius: 32px;
+  overflow: hidden;
+  position: relative;
+}
+
+.promo-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='120' viewBox='0 0 80 120'%3E%3Cpath d='M40 10 C55 30 55 90 40 110 C25 90 25 30 40 10 Z' stroke='white' stroke-width='1' fill='none'/%3E%3Cpath d='M40 15 L40 105' stroke='white' stroke-width='0.8' fill='none'/%3E%3C/svg%3E");
+  background-size: 80px 120px;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.promo-content {
+  padding: 64px 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .promo-content {
+    padding: 100px 80px;
+    gap: 24px;
+  }
+}
+
+.promo-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.promo-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 80px;
+  font-weight: 400;
+  line-height: 1;
+  color: #fff;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .promo-title {
+    font-size: 120px;
+  }
+}
+
+.promo-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+.promo-cta {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 16px 32px 16px 24px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text);
+  background-color: #fff;
+  border-radius: 999px;
+  transition: background-color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.promo-cta:hover {
+  background-color: var(--text);
+  color: #fff;
+}
+
+/* ============================================
+   ПЛАВНАЯ АНИМАЦИЯ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ (TRANSITION)
+   ============================================ */
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.fade-in-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Для пользователей, отключивших анимации в ОС, показываем контент сразу */
+@media (prefers-reduced-motion: reduce) {
+  /* Отключаем fade-in */
+  .fade-in-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  /* Отключаем shimmer на карточке */
+  .promo-shimmer {
+    display: none;
+  }
+
+  /* Отключаем tilt на карточке */
+  .promo-card {
+    transition: none !important;
+  }
+
+  /* Отключаем анимацию стрелок */
+  .arrow-icon line,
+  .arrow-icon polyline {
+    transition: none;
+  }
+
+  /* Отключаем hover-сдвиг стрелок */
+  .arrow-link:hover .arrow-icon {
+    transform: none;
+  }
+
+  /* Отключаем отжим кнопок */
+  .btn-pill:active,
+  .btn-phone:active,
+  .promo-cta:active,
+  .btn-pill-light:active,
+  .btn-pill-outline:active,
+  .is-pressed {
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* ============================================
+   КАСКАДНОЕ ПОЯВЛЕНИЕ: ПРОМО И ФУТЕР
+   ============================================ */
+
+/* Промо-карточка: лесенка 0.1s -> 0.4s */
+.promo-label.fade-in-up { transition-delay: 0.1s; }
+.promo-title.fade-in-up { transition-delay: 0.2s; }
+.promo-subtitle.fade-in-up { transition-delay: 0.3s; }
+.promo-cta.fade-in-up { transition-delay: 0.4s; }
+
+
+
+/* ============================================
+   ПРЕМИУМ ИНТЕРАКТИВНОСТЬ ПРОМО-КАРТОЧКИ
+   ============================================ */
+
+/* Базовые стили для плавности tilt */
+.promo-card {
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+              box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+}
+
+/* Shimmer-блик (поверх паттерна, под контентом) */
+.promo-shimmer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.12) 45%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0.12) 55%,
+    transparent 60%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Десктоп: tilt + shimmer + тень объема */
+@media (hover: hover) and (pointer: fine) {
+  .promo-card:hover {
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.25);
+  }
+
+  .promo-card:hover .promo-shimmer {
+    transform: translateX(100%);
+  }
+}
+
+/* Тач: subtle scale при касании */
+@media (hover: none) {
+  .promo-card:active {
+    transform: scale(0.98) !important;
+    transition: transform 0.15s ease;
+  }
+}
+
+/* ============================================
+   ЭФФЕКТ ОТЖИМА КНОПОК (УНИВЕРСАЛЬНЫЙ)
+   ============================================ */
+
+/* Базовые стили для всех кнопок */
+.btn-pill,
+.btn-phone,
+.btn-pill-light,
+.btn-pill-outline,
+.privacy-link,
+.burger,
+.close-btn,
+.privacy-modal__close {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1),
+              filter 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Промо-кнопка — без transition на transform, чтобы не конфликтовать с fade-in */
+.promo-cta {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background-color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+              color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Отжим через :active (десктоп при клике мышью) */
+.btn-pill:active,
+.btn-phone:active,
+.btn-pill-light:active,
+.btn-pill-outline:active,
+.privacy-link:active,
+.burger:active,
+.close-btn:active,
+.privacy-modal__close:active {
+  transform: scale(0.96);
+  filter: brightness(0.92);
+}
+
+/* Промо-кнопка: отжим только при :active */
+.promo-cta:active {
+  transform: scale(0.96);
+  filter: brightness(0.92);
+  transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1),
+              filter 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Отжим через .is-pressed (тач + эмулятор) — работает ВСЕГДА */
+.btn-pill.is-pressed,
+.btn-phone.is-pressed,
+.btn-pill-light.is-pressed,
+.btn-pill-outline.is-pressed,
+.privacy-link.is-pressed,
+.burger.is-pressed,
+.close-btn.is-pressed,
+.privacy-modal__close.is-pressed {
+  transform: scale(0.96) !important;
+  filter: brightness(0.92) !important;
+}
+
+/* Промо-кнопка: отжим через .is-pressed */
+.promo-cta.is-pressed {
+  transform: scale(0.96) !important;
+  filter: brightness(0.92) !important;
+  transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1),
+              filter 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* ============================================
+   ПЛАВНОЕ ИСЧЕЗНОВЕНИЕ БУРГЕРА
+   ============================================ */
+
+.burger {
+  transition: opacity 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+              transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.burger-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.8);
+}
+
+
+
+/* ============================================
+   АНИМИРОВАННЫЕ СТРЕЛКИ ВНЕШНЕГО ПЕРЕХОДА
+   ============================================ */
+
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.arrow-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Сдвиг стрелки только при наведении мышью */
+@media (hover: hover) {
+  .arrow-link:hover .arrow-icon {
+    transform: translateX(4px) translateY(-4px);
+  }
+}
+
+/* ============================================
+   СНОСКА К АКЦИИ
+   ============================================ */
+
+/* Звёздочка на карточке */
+.promo-asterisk {
+  font-size: 0.75em;
+  vertical-align: super;
+  margin-left: 3px;
+  opacity: 0.8;
+  font-weight: 300;
+}
+
+
+
+/* ============================================
+   APPLE HIG: МИНИМАЛЬНЫЙ HITBOX 44×44pt
+   ============================================ */
+
+.btn-pill,
+.btn-phone,
+.promo-cta,
+.btn-pill-light,
+.btn-pill-outline,
+.privacy-link,
+.burger,
+.close-btn,
+.privacy-modal__close {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Для иконок-кнопок (телефон, бургер, крестик) — гарантируем квадратный hitbox */
+.btn-phone,
+.burger,
+.close-btn,
+.privacy-modal__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================
+   APPLE HIG: FOCUS-VISIBLE ДЛЯ КЛАВИАТУРЫ
+   ============================================ */
+
+.btn-pill:focus-visible,
+.btn-phone:focus-visible,
+.promo-cta:focus-visible,
+.btn-pill-light:focus-visible,
+.btn-pill-outline:focus-visible,
+.privacy-link:focus-visible,
+.burger:focus-visible,
+.close-btn:focus-visible,
+.privacy-modal__close:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--accent-olive, #6b7f5e);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Убираем outline при клике мышью (только для клавиатуры) */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Скрываем иконку телефона на узких экранах (где есть бургер) */
+@media (max-width: 1199px) {
+  .btn-phone {
+    display: none;
+  }
+}
+
+/* ============================================
+   ИЗОБРАЖЕНИЯ В ГАЛЕРЕЕ
+   ============================================ */
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+}
+
+/* ============================================
+   ИЗОБРАЖЕНИЯ В СЕКЦИИ О СТУДИИ
+   ============================================ */
+
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+}
+
+
