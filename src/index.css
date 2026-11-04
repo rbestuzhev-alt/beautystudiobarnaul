@@ -225,6 +225,10 @@ body {
   width: 100%;
   height: 100vh;
   background-color: var(--accent-beige);
+  background-image: url('/images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
