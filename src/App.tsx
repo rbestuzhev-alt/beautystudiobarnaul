@@ -293,7 +293,10 @@ export default function App() {
           <div className="promo-content">
             <span className="promo-label">ПЕРВОЕ ПОСЕЩЕНИЕ</span>
             <h2 className="promo-title">20%</h2>
-            <p className="promo-subtitle">скидка на любую услугу студии</p>
+            <p className="promo-subtitle">
+  скидка на любую услугу студии
+  <sup className="promo-asterisk">*</sup>
+</p>
             <a href="#contacts" className="promo-cta arrow-link fade-in-up">Записаться <ArrowIcon /></a>
           </div>
         </div>
@@ -389,6 +392,9 @@ export default function App() {
           <span className="footer-logo">ЛВ</span>
           <span className="footer-logo-sub">Бьюти-студия</span>
         </div>
+        <p className="footer-disclaimer fade-in-up">
+          <sup>*</sup> Скидка распространяется на первое посещение салона. Условия и стоимость услуги после применения скидки обсуждаются индивидуально.
+        </p>
         <p className="footer-legal fade-in-up">© 2026 ЛВ Бьюти-студия. Барнаул</p>
         <p className="footer-legal privacy-trigger fade-in-up">
           Нажимая кнопку записи, вы соглашаетесь с{' '}
