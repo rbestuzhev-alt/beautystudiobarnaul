@@ -133,8 +133,9 @@ body {
 }
 
 @media (min-width: 1200px) {
-  .burger {
-    display: none;
+  header .burger,
+  .header .burger {
+    display: none !important;
   }
   .btn-header-desktop {
     display: block;
