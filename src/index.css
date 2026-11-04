@@ -2040,4 +2040,11 @@ a:focus-visible {
   outline: none;
 }
 
+/* Скрываем иконку телефона на узких экранах (где есть бургер) */
+@media (max-width: 1199px) {
+  .btn-phone {
+    display: none;
+  }
+}
+
 
