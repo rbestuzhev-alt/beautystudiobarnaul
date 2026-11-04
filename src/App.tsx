@@ -348,6 +348,10 @@ export default function App() {
           <div className="gallery-item gallery-item-square photo-placeholder fade-in-up">[Полка с косметикой]</div>
           <div className="gallery-item gallery-item-wide photo-placeholder fade-in-up">[Зеркальная зона]</div>
           <div className="gallery-item gallery-item-tall photo-placeholder fade-in-up">[Портрет клиента]</div>
+          <div className="gallery-item gallery-item-square photo-placeholder fade-in-up">[Детали маникюра]</div>
+          <div className="gallery-item gallery-item-wide photo-placeholder fade-in-up">[Зона ожидания]</div>
+          <div className="gallery-item gallery-item-tall photo-placeholder fade-in-up">[Стерилизация инструментов]</div>
+          <div className="gallery-item gallery-item-square photo-placeholder fade-in-up">[Финальный образ]</div>
         </div>
       </section>
 
