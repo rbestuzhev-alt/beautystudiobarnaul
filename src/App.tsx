@@ -321,8 +321,12 @@ export default function App() {
         <div className="about-grid">
           {/* Левая колонка — фото */}
           <div className="about-photos">
-            <div className="about-photo photo-placeholder fade-in-up">[ФОТО мастера]</div>
-            <div className="about-photo photo-placeholder fade-in-up">[ФОТО интерьера]</div>
+            <div className="about-photo photo-placeholder fade-in-up">
+              <img src="/images/i (5).webp" alt="Мастер студии за работой" />
+            </div>
+            <div className="about-photo photo-placeholder fade-in-up">
+              <img src="/images/i (16).webp" alt="Кофе-зона студии" />
+            </div>
           </div>
 
           {/* Правая колонка — текст */}
