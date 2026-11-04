@@ -348,24 +348,60 @@ export default function App() {
         </div>
 
         <div className="gallery-masonry fade-in-up">
-          <div className="gallery-item gallery-item-tall photo-placeholder fade-in-up">[Руки мастера в работе]</div>
-          <div className="gallery-item gallery-item-square photo-placeholder fade-in-up">[Маникюр крупным планом]</div>
-          <div className="gallery-item gallery-item-wide photo-placeholder fade-in-up">[Интерьер O2]</div>
-          <div className="gallery-item gallery-item-square photo-placeholder fade-in-up">[Кофе-зона]</div>
-          <div className="gallery-item gallery-item-tall photo-placeholder fade-in-up">[Оформление бровей]</div>
-          <div className="gallery-item gallery-item-square photo-placeholder fade-in-up">[Процесс наращивания]</div>
-          <div className="gallery-item gallery-item-wide photo-placeholder fade-in-up">[Ресепшн]</div>
-          <div className="gallery-item gallery-item-tall photo-placeholder fade-in-up">[Детали укладки]</div>
-          <div className="gallery-item gallery-item-square photo-placeholder fade-in-up">[Растения в студии]</div>
-          <div className="gallery-item gallery-item-wide photo-placeholder fade-in-up">[Рабочее место мастера]</div>
-          <div className="gallery-item gallery-item-tall photo-placeholder fade-in-up">[Педикюр результат]</div>
-          <div className="gallery-item gallery-item-square photo-placeholder fade-in-up">[Полка с косметикой]</div>
-          <div className="gallery-item gallery-item-wide photo-placeholder fade-in-up">[Зеркальная зона]</div>
-          <div className="gallery-item gallery-item-tall photo-placeholder fade-in-up">[Портрет клиента]</div>
-          <div className="gallery-item gallery-item-square photo-placeholder fade-in-up">[Детали маникюра]</div>
-          <div className="gallery-item gallery-item-wide photo-placeholder fade-in-up">[Зона ожидания]</div>
-          <div className="gallery-item gallery-item-tall photo-placeholder fade-in-up">[Стерилизация инструментов]</div>
-          <div className="gallery-item gallery-item-square photo-placeholder fade-in-up">[Финальный образ]</div>
+          <div className="gallery-item gallery-item-tall photo-placeholder fade-in-up">
+            <img src="/images/i (11).webp" alt="Мастер за работой" />
+          </div>
+          <div className="gallery-item gallery-item-square photo-placeholder fade-in-up">
+            <img src="/images/i (3).webp" alt="Детали маникюра" />
+          </div>
+          <div className="gallery-item gallery-item-wide photo-placeholder fade-in-up">
+            <img src="/images/i (111).webp" alt="Интерьер студии" />
+          </div>
+          <div className="gallery-item gallery-item-square photo-placeholder fade-in-up">
+            <img src="/images/i (46).webp" alt="Рабочее пространство" />
+          </div>
+          <div className="gallery-item gallery-item-tall photo-placeholder fade-in-up">
+            <img src="/images/i (6).webp" alt="Оформление бровей" />
+          </div>
+          <div className="gallery-item gallery-item-square photo-placeholder fade-in-up">
+            <img src="/images/i (1).webp" alt="Процесс работы" />
+          </div>
+          <div className="gallery-item gallery-item-wide photo-placeholder fade-in-up">
+            <img src="/images/i (2).webp" alt="Зона ресепшн" />
+          </div>
+          <div className="gallery-item gallery-item-tall photo-placeholder fade-in-up">
+            <img src="/images/i (14).webp" alt="Детали интерьера" />
+          </div>
+          <div className="gallery-item gallery-item-square photo-placeholder fade-in-up">
+            <img src="/images/i (15).webp" alt="Уютная атмосфера" />
+          </div>
+          <div className="gallery-item gallery-item-wide photo-placeholder fade-in-up">
+            <img src="/images/i (333).webp" alt="Свет и пространство" />
+          </div>
+          <div className="gallery-item gallery-item-tall photo-placeholder fade-in-up">
+            <img src="/images/i (17).webp" alt="Результат работы" />
+          </div>
+          <div className="gallery-item gallery-item-square photo-placeholder fade-in-up">
+            <img src="/images/i (4).webp" alt="Инструменты мастера" />
+          </div>
+          <div className="gallery-item gallery-item-wide photo-placeholder fade-in-up">
+            <img src="/images/i (9).webp" alt="Зеркальная зона" />
+          </div>
+          <div className="gallery-item gallery-item-tall photo-placeholder fade-in-up">
+            <img src="/images/i (7).webp" alt="Декор студии" />
+          </div>
+          <div className="gallery-item gallery-item-square photo-placeholder fade-in-up">
+            <img src="/images/i (25).webp" alt="Процесс создания образа" />
+          </div>
+          <div className="gallery-item gallery-item-wide photo-placeholder fade-in-up">
+            <img src="/images/i (6) 2.webp" alt="Комфортная зона ожидания" />
+          </div>
+          <div className="gallery-item gallery-item-tall photo-placeholder fade-in-up">
+            <img src="/images/i (13).webp" alt="Финальный штрих" />
+          </div>
+          <div className="gallery-item gallery-item-square photo-placeholder fade-in-up">
+            <img src="/images/i.webp" alt="Портрет клиента" />
+          </div>
         </div>
       </section>
 
