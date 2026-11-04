@@ -215,7 +215,14 @@ export default function App() {
 
         {/* Кнопка-пилюля + бургер */}
         <div className="header-actions">
-          <button className="btn-pill arrow-link">Записаться <ArrowIcon /></button>
+          <a 
+  href="https://dikidi.net/1563744?p=0.pi" 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  className="btn-pill arrow-link"
+>
+  Записаться <ArrowIcon />
+</a>
 
           <a href="#contacts-address" className="btn-phone" aria-label="Позвонить" onClick={scrollToAddress}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -295,7 +302,14 @@ export default function App() {
   скидка на любую услугу студии
   <sup className="promo-asterisk">*</sup>
 </p>
-            <a href="#contacts" className="promo-cta arrow-link fade-in-up">Записаться <ArrowIcon /></a>
+            <a 
+  href="https://dikidi.net/1563744?p=0.pi" 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  className="promo-cta arrow-link fade-in-up"
+>
+  Записаться <ArrowIcon />
+</a>
           </div>
         </div>
       </section>
