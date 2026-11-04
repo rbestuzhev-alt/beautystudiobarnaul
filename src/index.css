@@ -22,6 +22,9 @@
 
 html {
   scroll-behavior: smooth;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -31,6 +34,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 /* ============================================
@@ -61,6 +66,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 24px;
+  padding-top: env(safe-area-inset-top);
 }
 
 @media (min-width: 1200px) {
@@ -100,7 +106,7 @@ body {
   border: none;
   cursor: pointer;
   padding: 0;
-  transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .btn-header:hover {
@@ -123,7 +129,7 @@ body {
   width: 24px;
   height: 1.5px;
   background-color: var(--text);
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 @media (min-width: 1200px) {
@@ -157,7 +163,7 @@ body {
   gap: 40px;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .mobile-menu.active {
@@ -171,7 +177,7 @@ body {
   color: var(--text);
   text-decoration: none;
   font-weight: 400;
-  transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .mobile-menu a:hover {
@@ -240,7 +246,7 @@ body {
   position: relative;
   z-index: 2;
   text-align: center;
-  animation: fadeIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation: fadeIn 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
   opacity: 0;
 }
 
@@ -302,7 +308,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
-  animation: bounce 2s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: bounce 2s infinite cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 @keyframes bounce {
@@ -651,7 +657,7 @@ body {
 .contact-item-value a {
   color: rgba(250, 250, 248, 0.8);
   text-decoration: none;
-  transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .contact-item-value a:hover {
@@ -681,8 +687,8 @@ body {
 .reveal {
   opacity: 0;
   transform: translateY(60px);
-  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1),
+              transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .reveal.visible {
@@ -822,7 +828,7 @@ body {
   padding: 10px 16px 10px 12px;
   cursor: pointer;
   white-space: nowrap;
-  transition: background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: background-color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .btn-pill:hover {
@@ -890,7 +896,7 @@ body {
   border-radius: 999px;
   padding: 16px 32px;
   cursor: pointer;
-  transition: background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: background-color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .btn-pill-light:hover {
@@ -912,7 +918,7 @@ body {
   border-radius: 999px;
   padding: 13px 24px 13px 20px;
   cursor: pointer;
-  transition: border-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: border-color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .btn-pill-outline:hover {
@@ -1112,6 +1118,7 @@ body {
 
 .footer-light {
   padding: 64px 24px;
+  padding-bottom: calc(64px + env(safe-area-inset-bottom));
 }
 
 .footer-logo-wrap {
@@ -1340,7 +1347,7 @@ body {
   color: var(--bg);
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: background-color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .btn-phone:hover {
@@ -1469,7 +1476,7 @@ body {
   opacity: 0;
   transform: translateY(10px);
   filter: blur(4px);
-  animation: preloaderReveal 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation: preloaderReveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 @keyframes preloaderReveal {
@@ -1706,7 +1713,7 @@ body {
   color: var(--text);
   background-color: #fff;
   border-radius: 999px;
-  transition: background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: background-color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .promo-cta:hover {
@@ -1721,8 +1728,8 @@ body {
 .fade-in-up {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
-              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
   will-change: opacity, transform;
 }
 
@@ -1733,10 +1740,43 @@ body {
 
 /* Для пользователей, отключивших анимации в ОС, показываем контент сразу */
 @media (prefers-reduced-motion: reduce) {
+  /* Отключаем fade-in */
   .fade-in-up {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  /* Отключаем shimmer на карточке */
+  .promo-shimmer {
+    display: none;
+  }
+
+  /* Отключаем tilt на карточке */
+  .promo-card {
+    transition: none !important;
+  }
+
+  /* Отключаем анимацию стрелок */
+  .arrow-icon line,
+  .arrow-icon polyline {
+    transition: none;
+  }
+
+  /* Отключаем hover-сдвиг стрелок */
+  .arrow-link:hover .arrow-icon {
+    transform: none;
+  }
+
+  /* Отключаем отжим кнопок */
+  .btn-pill:active,
+  .btn-phone:active,
+  .promo-cta:active,
+  .btn-pill-light:active,
+  .btn-pill-outline:active,
+  .is-pressed {
+    transform: none !important;
+    filter: none !important;
   }
 }
 
@@ -1758,8 +1798,8 @@ body {
 
 /* Базовые стили для плавности tilt */
 .promo-card {
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+              box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
   will-change: transform;
 }
 
@@ -1779,7 +1819,7 @@ body {
     transparent 60%
   );
   transform: translateX(-100%);
-  transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 /* Десктоп: tilt + shimmer + тень объема */
@@ -1818,8 +1858,8 @@ body {
   -webkit-touch-callout: none;
   cursor: pointer;
   touch-action: manipulation;
-  transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              filter 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1),
+              filter 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 /* Промо-кнопка — без transition на transform, чтобы не конфликтовать с fade-in */
@@ -1828,8 +1868,8 @@ body {
   -webkit-touch-callout: none;
   cursor: pointer;
   touch-action: manipulation;
-  transition: background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: background-color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+              color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 /* Отжим через :active (десктоп при клике мышью) */
@@ -1849,8 +1889,8 @@ body {
 .promo-cta:active {
   transform: scale(0.96);
   filter: brightness(0.92);
-  transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              filter 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1),
+              filter 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 /* Отжим через .is-pressed (тач + эмулятор) — работает ВСЕГДА */
@@ -1870,8 +1910,8 @@ body {
 .promo-cta.is-pressed {
   transform: scale(0.96) !important;
   filter: brightness(0.92) !important;
-  transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              filter 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1),
+              filter 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 /* ============================================
@@ -1879,8 +1919,8 @@ body {
    ============================================ */
 
 .burger {
-  transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: opacity 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+              transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .burger-hidden {
@@ -1906,11 +1946,14 @@ body {
   width: 20px;
   height: 20px;
   flex-shrink: 0;
-  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.arrow-link:hover .arrow-icon {
-  transform: translateX(4px) translateY(-4px);
+/* Сдвиг стрелки только при наведении мышью */
+@media (hover: hover) {
+  .arrow-link:hover .arrow-icon {
+    transform: translateX(4px) translateY(-4px);
+  }
 }
 
 /* ============================================
@@ -1943,6 +1986,57 @@ body {
   vertical-align: super;
   margin-right: 5px;
   opacity: 0.8;
+}
+
+/* ============================================
+   APPLE HIG: МИНИМАЛЬНЫЙ HITBOX 44×44pt
+   ============================================ */
+
+.btn-pill,
+.btn-phone,
+.promo-cta,
+.btn-pill-light,
+.btn-pill-outline,
+.privacy-link,
+.burger,
+.close-btn,
+.privacy-modal__close {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Для иконок-кнопок (телефон, бургер, крестик) — гарантируем квадратный hitbox */
+.btn-phone,
+.burger,
+.close-btn,
+.privacy-modal__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================
+   APPLE HIG: FOCUS-VISIBLE ДЛЯ КЛАВИАТУРЫ
+   ============================================ */
+
+.btn-pill:focus-visible,
+.btn-phone:focus-visible,
+.promo-cta:focus-visible,
+.btn-pill-light:focus-visible,
+.btn-pill-outline:focus-visible,
+.privacy-link:focus-visible,
+.burger:focus-visible,
+.close-btn:focus-visible,
+.privacy-modal__close:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--accent-olive, #6b7f5e);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Убираем outline при клике мышью (только для клавиатуры) */
+:focus:not(:focus-visible) {
+  outline: none;
 }
 
 
