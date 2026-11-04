@@ -263,7 +263,9 @@ export default function App() {
         {/* Градиент поверх фона */}
         <div className="hero-overlay"></div>
 
-        {/* Центральный контент удалён */}        {/* Скролл-индикатор — стрелка вниз */}
+        {/* Центральный контент удалён */}
+
+        {/* Скролл-индикатор — стрелка вниз */}
         <div className="scroll-indicator fade-in-up">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path
