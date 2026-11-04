@@ -1919,10 +1919,10 @@ body {
 
 /* Звёздочка на карточке */
 .promo-asterisk {
-  font-size: 0.6em;
+  font-size: 0.75em;
   vertical-align: super;
-  margin-left: 2px;
-  opacity: 0.7;
+  margin-left: 3px;
+  opacity: 0.8;
   font-weight: 300;
 }
 
@@ -1939,10 +1939,10 @@ body {
 }
 
 .footer-disclaimer sup {
-  font-size: 0.9em;
+  font-size: 1.1em;
   vertical-align: super;
-  margin-right: 4px;
-  opacity: 0.7;
+  margin-right: 5px;
+  opacity: 0.8;
 }
 
 
