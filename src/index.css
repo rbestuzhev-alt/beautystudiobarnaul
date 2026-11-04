@@ -1808,7 +1808,6 @@ body {
 /* Базовые стили для всех кнопок */
 .btn-pill,
 .btn-phone,
-.promo-cta,
 .btn-pill-light,
 .btn-pill-outline,
 .privacy-link,
@@ -1823,10 +1822,19 @@ body {
               filter 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+/* Промо-кнопка — без transition на transform, чтобы не конфликтовать с fade-in */
+.promo-cta {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
 /* Отжим через :active (десктоп при клике мышью) */
 .btn-pill:active,
 .btn-phone:active,
-.promo-cta:active,
 .btn-pill-light:active,
 .btn-pill-outline:active,
 .privacy-link:active,
@@ -1837,10 +1845,17 @@ body {
   filter: brightness(0.92);
 }
 
+/* Промо-кнопка: отжим только при :active */
+.promo-cta:active {
+  transform: scale(0.96);
+  filter: brightness(0.92);
+  transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              filter 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
 /* Отжим через .is-pressed (тач + эмулятор) — работает ВСЕГДА */
 .btn-pill.is-pressed,
 .btn-phone.is-pressed,
-.promo-cta.is-pressed,
 .btn-pill-light.is-pressed,
 .btn-pill-outline.is-pressed,
 .privacy-link.is-pressed,
@@ -1849,6 +1864,14 @@ body {
 .privacy-modal__close.is-pressed {
   transform: scale(0.96) !important;
   filter: brightness(0.92) !important;
+}
+
+/* Промо-кнопка: отжим через .is-pressed */
+.promo-cta.is-pressed {
+  transform: scale(0.96) !important;
+  filter: brightness(0.92) !important;
+  transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              filter 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* ============================================
